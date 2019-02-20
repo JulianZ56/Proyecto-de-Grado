@@ -22,7 +22,7 @@
                         <div class="col-6">
                             <select name="validacionEtapa" required>
                                 <option value="{{ $Segui }}">{{$Segui}}</option>
-                                <option disabled="disabled">>------Cambiar Estado------<</option> <option>Pendiente</option>
+                                <option disabled="disabled">>------Cambiar Estado------<</option> 
                                 <option>Revicion</option>
                                 <option>Proceso</option>
                                 <option>Finalizado</option>

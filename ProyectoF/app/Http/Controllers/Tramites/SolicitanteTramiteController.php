@@ -105,7 +105,7 @@ class SolicitanteTramiteController extends Controller
 
         $segumiento = new Seguimiento;
         $segumiento->idTramite = $tramite->id;
-        $segumiento->EstadoTramite = "Pendiente";
+        $segumiento->EstadoTramite = "Sin Asignar";
         $segumiento->save(); 
 
         return redirect()->route('solicitante.crearsolicitud-index')->with('success','Tramite Creado Satisfactoriamente!');
