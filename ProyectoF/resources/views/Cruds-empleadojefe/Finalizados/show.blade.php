@@ -160,8 +160,8 @@
                  {{ $Respuesta->comentario }} 
             </div> 
             <div class="flecha-derecha"></div> 
-            <img src="foto2.jpeg" alt="" class="foto"> 
-           <div class="fecha">{{ $Tramite->solicitante->nombre }}  {{ $Respuesta->created_at }}</div>  
+            <img src="/img/epa.png" alt="" class="foto" width="40px" height="40px"> 
+           <div class="fecha">{{ $Respuesta->nombre }}  {{ $Respuesta->created_at }}</div>  
            </div>
 
                 @else 
