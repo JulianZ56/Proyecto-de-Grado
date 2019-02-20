@@ -53,7 +53,7 @@
                     <ul class="collapse list-unstyled" id="pageSubmenu2">
                         <li>
                             <a href="{{ route('empleadojefe.empleadojefe-index-pendiente') }}"><i class="fas fa-hand-paper"></i> 
-                                Pendientes o Sin Asignar</a>
+                                Sin Asignar</a>
                         </li>
                         <li>
                             <a href="{{ route('empleadojefe.empleadojefe-index-Proceso') }}"><i class="fas fa-clock"></i> En

@@ -110,27 +110,53 @@
 
 
 
-            <table class="table table-light table-striped">
-                <tbody>
-                    <tr>
-                        <td class="columnas2" style="border: gray 1px solid;"><strong>Estado del tramite</strong></td>
-                        <td class="bordes2">{{$Segui}}</td>
-                    </tr>
-                    <tr>
-                        <td class="columnas" style="border: gray 1px solid;"><strong>Descripcion</strong></td>
-                        <td class="bordes2">{{ $Tramite->descripcionTramite }}</td>
 
-       
+ <table class="table table-light table-striped">
+            <tbody>
+                <tr>
+                    <td class="columnas2" WIDTH="284"  style="border: gray 1px solid;"><strong>Estado del tramite</strong></td>
+                        <td class="bordes2">
+                            <div class="row">
+                                <div class="col-6">{{$Segui->EstadoTramite}}</div>
+                              
+                            </div>
+                    </td>
+                </tr>
+                <tr>
+                        <td class="columnas" style="border: gray 1px solid;"><strong>Observacion</strong></td>
+                        <td class="bordes2">
+                            <div class="row">
 
-                    </tr>
-                    <tr>
-                        <td class="columnas2" style="border: gray 1px solid;"><strong>Adjuntos</strong></td>
-                        <td class="bordes2">Documentos </td>
 
-                    </tr>
+        @if($encontrado2==true)
+            <div class="col-6">No hay Observaciones por el momento</div>
+                           
+        @else
+                    <div class="col-6">{{$observar->Observacion}}</div>
+                            <div  class="col-3">                       
+                                <a class="btn btn-outline-info" href="{{ route('empleadojefe.empleadojefe-Observaciones', $Tramite->id)}}">
+                                <i class="fas fa-pencil-alt"></i>Ver Observaciones</a>
+                            </div>
+            @endif
 
-                </tbody>
-            </table>
+
+        
+                        </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="table table-bordered">
+                <tr>
+                    <td class="columnas" WIDTH="284" style="border: gray 1px solid;"><strong>Descripcion</strong></td>
+                    <td class="bordes2"  >{{ $Tramite->descripcionTramite }}</td>
+                </tr>
+                <tr>
+                    <td class="columnas2"  style="border: gray 1px solid;"><strong>Adjuntos</strong></td>
+                    <td class="bordes2">Documentos </td>
+                </tr>
+        </table>
+
 
 
             <div class="card" style=" border: black 1px solid;" id="chat">
@@ -183,6 +209,8 @@
                         </div>
                     </li>
                     <br>
+
+                
                 </ul>
 
             </div>

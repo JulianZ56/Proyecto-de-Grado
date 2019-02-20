@@ -70,7 +70,7 @@ class EmpleadoJefeTramiteController extends Controller
             ->join('seguimientos', 'tramites.id', '=', 'seguimientos.idTramite')
             ->select('tramites.*','catalogo_tramites.nombreCatalogo','catalogo_tramites.descripcionCatalogo','dependencias.nombreDependecia','solicitantes.nombreSolicitante','solicitantes.apellido')
             ->where('dependencias.id',$idE)
-            ->where('seguimientos.EstadoTramite','Pendiente')
+            ->where('seguimientos.EstadoTramite','Sin Asignar')
             ->orderBy('dependencias.id', 'asc')
             ->paginate(5); 
      
@@ -84,14 +84,28 @@ class EmpleadoJefeTramiteController extends Controller
         $crear=Seguimiento::where('idTramite',$id)->value('id');
         $Respuestas=Respuestaseguimiento::where('idSeguimiento',$crear)->get();
         $Tramite=Tramite::find($id);
-        $Segui=Seguimiento::where('idTramite',$id)->value('EstadoTramite');
+        $Segui=Seguimiento::where('idTramite',$id)->first();
+         $Observa=Observacion::where('idSeguimiento',$Segui->id)->get();
+
+        $observar=$Observa->last();
+
+      
 
         $encontrado=false;
             if($Tramite->idEmpleado == null){
                 $encontrado=true;
             }
 
-        return view('Cruds-EmpleadoJefe.Pendiente.show',compact('Tramite','Segui','Respuestas','encontrado'));
+
+
+         $encontrado2=false;
+         
+            if($observar == null){
+                $encontrado2=true;
+            }
+
+
+        return view('Cruds-EmpleadoJefe.Pendiente.show',compact('Tramite','Segui','Respuestas','encontrado','encontrado2','observar'));
     }
 
     public function inicio_Proceso_Revision(){
@@ -119,13 +133,32 @@ class EmpleadoJefeTramiteController extends Controller
 
     public function mostrar_Proceso_Revision($id){
 
-        $crear=Seguimiento::where('idTramite',$id)->value('id');
+      $crear=Seguimiento::where('idTramite',$id)->value('id');
         $Respuestas=Respuestaseguimiento::where('idSeguimiento',$crear)->get();
         $Tramite=Tramite::find($id);
-        $Segui=Seguimiento::where('idTramite',$id)->value('EstadoTramite');
+        $Segui=Seguimiento::where('idTramite',$id)->first();
+         $Observa=Observacion::where('idSeguimiento',$Segui->id)->get();
 
-        return view('Cruds-EmpleadoJefe.Proceso-Revision.show',compact('Tramite','Segui','Respuestas'));
+        $observar=$Observa->last();
+
+      
+      
+        $encontrado=false;
+            if($Tramite->idEmpleado == null){
+                $encontrado=true;
+            }
+
+
+
+         $encontrado2=false;
+         
+            if($observar == null){
+                $encontrado2=true;
+            }
+
+        return view('Cruds-EmpleadoJefe.Proceso-Revision.show',compact('Tramite','Segui','Respuestas','encontrado','encontrado2','observar'));
     }
+    
 
     public function inicio_Rechazado(){
 
@@ -150,12 +183,31 @@ class EmpleadoJefeTramiteController extends Controller
 
     public function mostrar_Rechazado($id){
 
-        $crear=Seguimiento::where('idTramite',$id)->value('id');
+          $crear=Seguimiento::where('idTramite',$id)->value('id');
         $Respuestas=Respuestaseguimiento::where('idSeguimiento',$crear)->get();
         $Tramite=Tramite::find($id);
-        $Segui=Seguimiento::where('idTramite',$id)->value('EstadoTramite');
+        $Segui=Seguimiento::where('idTramite',$id)->first();
+         $Observa=Observacion::where('idSeguimiento',$Segui->id)->get();
 
-        return view('Cruds-EmpleadoJefe.Rechazados.show',compact('Tramite','Segui','Respuestas'));
+        $observar=$Observa->last();
+
+      
+      
+        $encontrado=false;
+            if($Tramite->idEmpleado == null){
+                $encontrado=true;
+            }
+
+
+
+         $encontrado2=false;
+         
+            if($observar == null){
+                $encontrado2=true;
+            }
+
+
+        return view('Cruds-EmpleadoJefe.Rechazados.show',compact('Tramite','Segui','Respuestas','observar','encontrado','encontrado2'));
     }
 
     public function asignar($id){

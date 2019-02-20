@@ -124,24 +124,34 @@
             </div>
 <br>
             <table class="table table-light table-striped">
-                <tbody>
-                    <tr>
-                        <td class="columnas2" style="border: gray 1px solid;"><strong>Estado del tramite</strong></td>
-                        <td class="bordes2">{{$Segui}}</td>
-                    </tr>
-                    <tr>
-                        <td class="columnas" style="border: gray 1px solid;"><strong>Descripcion</strong></td>
-                        <td class="bordes2">{{ $Tramite->descripcionTramite }}</td>
-                    </tr>
-                    <tr>
-                        <td class="columnas2" style="border: gray 1px solid;"><strong>Adjuntos</strong></td>
-                        <td class="bordes2">Documentos </td>
-                    </tr>
-                </tbody>
-            </table>
+            <tbody>
+                <tr>
+                    <td class="columnas2" WIDTH="284"  style="border: gray 1px solid;"><strong>Estado del tramite</strong></td>
+                        <td class="bordes2">
+                            <div class="row">
+                                <div class="col-6">{{$Segui->EstadoTramite}}</div>
+                              
+                            </div>
+                    </td>
+                </tr>
+                <tr>
+                       
+                </tr>
+            </tbody>
+        </table>
+
+        <table class="table table-bordered">
+                <tr>
+                    <td class="columnas" WIDTH="284" style="border: gray 1px solid;"><strong>Descripcion</strong></td>
+                    <td class="bordes2"  >{{ $Tramite->descripcionTramite }}</td>
+                </tr>
+                <tr>
+                    <td class="columnas2"  style="border: gray 1px solid;"><strong>Adjuntos</strong></td>
+                    <td class="bordes2">Documentos </td>
+                </tr>
+        </table>
 
 
-<!----------- Card Comentarios ---------->
 
             <div class="card" style=" border: black 1px solid;" id="chat">
                 <div class="card-header" style="background-color:rgb(63, 105, 96);">
