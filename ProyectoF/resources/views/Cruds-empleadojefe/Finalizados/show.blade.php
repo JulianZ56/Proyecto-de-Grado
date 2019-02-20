@@ -16,7 +16,7 @@
 
 <div class="card" style=" border: black 1px solid;">
     <h5 class="card-header" style="background-color:rgb(34, 66, 59);">
-        <div class="titulotramite">{{ $Tramite->catalogotramite->nombre }}</div>
+        <div class="titulotramite">{{ $Tramite->catalogotramite->nombreCatalogo }}</div>
         
     </h5>
     <div class="card-body">
