@@ -143,47 +143,62 @@
 
 <!----------- Card Comentarios ---------->
 
-        <div class="card" style=" border: black 1px solid;" id="chat">
-            <div class="card-header" style="background-color:rgb(63, 105, 96);">
-                <div class="titulotramite">Comentarios</div>  
-            </div>
+            <div class="card" style=" border: black 1px solid;" id="chat">
+                <div class="card-header" style="background-color:rgb(63, 105, 96);">
+                  <div class="titulotramite">Comentarios</div>  
+                </div>
 
-            <ul class="media-list">
-                <li class="media"></li>
+                <ul class="media-list">
+
+                    <li class="media">
+                    </li>
+
                     <li class="media">
                         <div class="media-body">
                             <div class="media">
                                 <div class="media-body">
 
                    <div id="mensajes"> 
-                
-                @foreach ($Respuestas as $Respuesta)
+                        
+
+               @foreach ($Respuestas as $Respuesta)
+      
                 @if ( $Respuesta->correo == $Tramite->solicitante->email )
 
             <div class="mensaje-amigo"> 
-                <div class="contenido">{{ $Respuesta->comentario }}</div> 
-                <div class="flecha-derecha"></div> 
-                <img src="/img/epa.png" alt="" class="foto"> 
-                <div class="fecha">{{ $Tramite->solicitante->nombre }}  {{ $Respuesta->created_at }}</div>  
+            <div class="contenido"> 
+                 {{ $Respuesta->comentario }} 
+            </div> 
+            <div class="flecha-derecha"></div> 
+            <img src="foto2.jpeg" alt="" class="foto"> 
+           <div class="fecha">{{ $Tramite->solicitante->nombre }}  {{ $Respuesta->created_at }}</div>  
            </div>
 
                 @else 
         
             <div class="mensaje-autor"> 
-                <img  src="/img/soporte.png" alt="" class="foto" width="40px" height="40px"> 
-                <div class="flecha-izquierda"></div> 
-                <div class="contenido">{{ $Respuesta->comentario }}</div> 
-                <div class="fecha">{{ $Respuesta->nombre }}  {{ $Respuesta->created_at }} </div> 
-
-                @endif
-                @endforeach  
+            <img  src="/img/soporte.png" alt="" class="foto" width="40px" height="40px"> 
+            <div class="flecha-izquierda"></div> 
+            <div class="contenido"> 
+                {{ $Respuesta->comentario }} 
             </div> 
+            <div class="fecha">{{ $Respuesta->nombre }}  {{ $Respuesta->created_at }} </div> 
+             
+                
+                 @endif
+@endforeach  
+ </div> 
                                 </div>
                             </div>
                         </div>
                     </li>
+                    <br>
+
+                
                 </ul>
+
             </div>
+
         </div>
     </div>
 

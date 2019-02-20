@@ -11,6 +11,8 @@ use App\Respuestaseguimiento;
 use App\Tramite;
 use App\Dependencia;
 use App\CatalogoTramite;
+use App\Observacion;
+
 use DB;
 
 
@@ -213,14 +215,36 @@ class EmpleadoJefeTramiteController extends Controller
      */
     public function show($id)
     {
-        $crear=Seguimiento::where('idTramite',$id)->value('id');
+
+     $crear=Seguimiento::where('idTramite',$id)->value('id');
 
         $Respuestas=Respuestaseguimiento::where('idSeguimiento',$crear)->get();
         $Tramite=Tramite::find($id);
-        $Segui=Seguimiento::where('idTramite',$id)->value('EstadoTramite');
+        $Segui=Seguimiento::where('idTramite',$id)->first();
+        $Observa=Observacion::where('idSeguimiento',$Segui->id)->get();
 
-        return view('Cruds-EmpleadoJefe.Finalizados.show',compact('Tramite','Segui','Respuestas'));
+        $observar=$Observa->last();
 
+         $encontrado=false;
+         
+            if($observar == null){
+                $encontrado=true;
+            }
+
+
+        return view('Cruds-EmpleadoJefe.Finalizados.show',compact('Tramite','Segui','Respuestas','observar','encontrado'));
+
+
+
+    }
+
+       public function showObservaviones($id){
+
+         $Tramite=Tramite::find($id);
+         $Segui=Seguimiento::where('idTramite',$id)->first();
+         $Observa=Observacion::where('idSeguimiento',$Segui->id)->orderBy('id', 'des')->paginate(5);
+
+       return view('Cruds-empleadojefe.Tramites.observaciones',compact('Observa')) ->with('i', (request()->input('page', 1) - 1) * 5);;
     }
 
 
