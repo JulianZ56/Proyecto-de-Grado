@@ -1,4 +1,4 @@
-@extends('Layouts-Inicio.inicio-empleado')
+@extends('Layouts-Inicio.inicio-empleadojefe')
 
 
 @section('contenido')

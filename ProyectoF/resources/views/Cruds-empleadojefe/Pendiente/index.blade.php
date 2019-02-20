@@ -5,7 +5,7 @@
 <table class="table table-bordered" style="border: 0; margin:0px">
     <tr>
         <th style="border: 0;">
-            <h2 class="titulo2" align="center" >Tramites Pendientes / Sin Asignar</h2>
+            <h2 class="titulo2" align="center" >Tramites Sin Asignar</h2>
         </th>
     </tr>
 </table>

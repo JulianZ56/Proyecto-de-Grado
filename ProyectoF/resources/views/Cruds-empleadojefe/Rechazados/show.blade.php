@@ -187,7 +187,7 @@
             </div> 
             <div class="flecha-derecha"></div> 
             <img src="foto2.jpeg" alt="" class="foto"> 
-           <div class="fecha">{{ $Tramite->solicitante->nombre }}  {{ $Respuesta->created_at }}</div>  
+           <div class="fecha">{{ $Respuesta->nombre }}  {{ $Respuesta->created_at }}</div>  
            </div>
 
                 @else 
