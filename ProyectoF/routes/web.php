@@ -17,7 +17,7 @@ Route::prefix('empleado')->group(function(){
 	Route::get('/' , 'controladorEmpleado\EmpleadoControlador@index')->name('empleado.inicio.login');
 	Route::post('/logout' , 'login\EmpleadoLoginController@logout')->name('empleado.salir.login');
 
-	// -------------Ver Mis tramites----------------
+	// - ------------Ver Mis tramites----------------
 	Route::get ('/tramites' , 'Tramites\EmpleadoTramitesController@index')->name('empleado.empleado-index');//Inicio
 	Route::get ('/tramites/ver/{id}' , 'Tramites\EmpleadoTramitesController@show')->name('empleado.empleado-ver');//Ver
 	Route::get ('/tramites/editar/{id}' , 'Tramites\EmpleadoTramitesController@edit')->name('empleado.empleado-editar');//Edit
