@@ -1,0 +1,20 @@
+
+				-----------Datos a tener en cuenta------------- by Julian Lozano
+
+1- Para descargar el proyecto nos dirigimos a la ubicacion donde deseamos guardar el proyecto, click derecho y git bash
+2- Ejecutamos dentro del proyecto $ git clone 'https del proyecto en git' y empezara a descargarnos el proyecto como tal
+3- Crear el esquema de base de datos llamada proyecto_tramisoft y activar el xampp
+4- Al haberlo descargado el proyecto de git lo abrimos en nuestro editor de texto y cambiamos el archivo .en.example por .env, organizamos db-conection y colocamos los datos correspondientes, contraseñas base de datos y de mas y guardamos
+5- Abrimos el cmd de nuestro equipo y nos dirijimos a la ruta donde esta nuestro proyecto
+6- Dentro ejecutamos el comando 'composer update' o 'composer install'
+7- Esperamos que haga las instalaciones correspondientes y al terminar ejecutamos el comando 'php artisan key:generate' e inmediatamente nos generara un codigo o llave y la podemos ver en el archivo .env que modificamos, se encuerntra en la tercera casilla APP_KEY
+8- Finalmente refrescamos las migraciones con el comando 'php artisan migrate:refresh', de esa manera nos refrescara todas las migraciones y podemos ver en nuestra base de datos correspondiente las tablas creadas 
+9- Iniciar el servidor para ver el welcome de laravel
+
+
+$superuser = new App\SuperUser
+$superuser->email='braian@hotmail.com'
+$superuser->password=Hash::make('123456')
+$superuser->save()
+
+php artisan make:controller TramitesRechazadosController --resource

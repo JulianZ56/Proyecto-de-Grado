@@ -1,0 +1,5 @@
+----------------Modificar documentacion oficial--------------
+
+1- Ya no se tendran responsables de etapas sino empleados que se encarguen de un tramite como tal (casando un tramite con empleado que se encargara de todas las etapas del mismo tramite) y se agrego un gerente responsable de lo que hagan los empleados, teniendo este el controln de que actividades se han realizado.
+2- Las etapas son fijas para todods los tramites (pueden ser 5) para cada tramite, que abarquen un contexo general.
+

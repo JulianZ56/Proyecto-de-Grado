@@ -1,0 +1,107 @@
+Luego de haber instalado Git estos son los comandos para configurar el git:
+
+Inicialmente damos click derecho en el escritorio y presionamos git bash.
+
+1- Comando para Nombrarnos en Git
+-----$ git config --global user.name "Julian Lozano"
+
+2- Comando para ver nuestro Nombre Global
+-----$ git config --global user.name
+Julian Lozano
+
+3- Comando para configurar nuestro e-mail correspondiente
+----$ git config --global user.email "julianlozano48@gmail.com"
+
+4- Comando para colorear el git para alertar cuando aparezcan errores
+----$ git config --global color.ui true
+
+5- Comando para ver las configuraciones que tenemos
+----$ git config --global --list
+
+
+----------------------------Comandos para trabajar con proyectos-----------------------------
+
+$ git init  (SIEMPRE DEBE UTILIZARSE AL EMPEZAR EL ROYECTO)(Marca el inicio de nuestro proyecto, aqui git monitores todos los cambios realizados)
+
+$ git status (Estado de nuestro proyecto)(El color de los archivos en color rojos significa que aun no han sido agregados a git)(
+
+$ git add nombre_archivo (Decidimos que archivos estan listos para el siguiente paso)
+	$ git add -A (Subimos todo)
+
+$ git commit -m "Mensaje" (Guardamos los cambios con un mensaje para identificarlos)
+
+$ git log (Nos da una lista de todos nuestros commits con su respectiva informacion)
+
+$ git checkout 'numero_commit'(Viajamos atraves de nuestros commits o nuestras ramas)
+
+$ git checkout master (Nos devuelve al ultimo commit realizado a la master como tal)
+
+$ git reset (Es similar al checkout a diferencia de que este elimina los commits)
+	$ git reset --soft 'numero_commit'(No toca el codigo)
+	$ git reset --hard 'numero_commit'(Borra absolutamente todos los commits posteriores al numero 	del commit)
+
+$ git help 'Nombre_Comando' (Sirve para buscar la documentacion como tal de los comandos ejemplo: git help add)
+
+--------------------------------------------------Concepto---------------------
+head -> Es el commit actual donde nos encontramos
+
+Ramas -> Es una linea de tiempo en nuestro proyecto, que nos sirve para arreglar errores, experimentar, hacer grandes cambios, etc
+
+Fusiones -> Es la creacion de un nuevo commit juntando una rama con otra
+			----------------------------------------------------
+
+$ git branch (Sirve para mostrar todas las ramas que tenemos)
+	$ git branch 'Nombre_Rama' (Sirve para crear una nueva Rama)
+
+			----------------------------------------------------
+Para que una rama absorva los cambios o los commits de otra
+1- Se ubica en la Rama que va a absorver los cambios con (git checkout Rama).
+
+$ git merge Rama (La Rama hace referencia a la rama que van a absorber).
+
+			----------------------------------------------------
+
+$ git checkout 'Nombre_Rama (Sirve para cambiar de rama como tal)
+
+$ git push origin --delete <NombreRama> (Sirve para eliminar una rama que ya no se necesite).
+
+$ git checkout -b 'Nombre_Rama' (Sirve para crear la rama y ubicarme automaticamente en ella)
+
+			----------------Trabajando con GitHub----------------
+
+$ git clone 'https del proyecto en git' (Sirve para clonar un proyecto, se utiliza normalmente cuando no nos interesa colaborar en el proyecto)
+
+$ git remote add origin 'https de nuestro repositorio' ( Vincula o conectar nuestro proyecto local con nuestro proyecto remoto)
+
+$ git remote remove origin (Sirve para quitar lo que acabamos de hacer desvincular el repositorio como tal)
+
+			-----------------Como subir nuestro Proyecto---------------
+
+$ git push origin 'Rama_que desamos subir' (Manda nuestros cambios(commints) a GitHub)
+
+			-----------------Conceptos-----------------------
+
+Issues -> Son formas para continuar mejorar o slucionar un error en nuestros repositorios
+Milestone -> Son grupos de issues que aplican para un proyecto, caracteristicas o periodo de tiempo
+Labels -> Son una manera de organizar diferentes tipos de problemas
+
+Tags(Etiquetas) -> Sin simples puntos especificos en l historia de nuestro proyecto y se usan para marcar algguna version del mismo
+
+$ git commit --amend -m "'Nuevo Nombre Commit" (Sirve para renombrar el commit donde estemos ubicados)
+$ git push origin master - f(Sirve para forzar a subir archivos a github )
+
+$ git tag -a v0.1 -m "Version 0.1 de nuestro proyecto" 23af5b22eaf8cf34206466e9ebead74fc8838caa (Sirve para asignarle un tag a nuestro proyecto haciendo referencia en que ese commit es la version x del proyecto)
+
+$ git push origin --tags (Sirve para subir todos los tags)
+
+
+
+-----------------------------------Pasos para subir los cambios locales al repositorio de Git----------------------
+
+1- ) Nos ubicamos en la carpeta de nuestro proyecto, click dereho y git bash
+2- ) Luego ejecutamos el comando 'git status' para saber a que archivos se le han realizado modificaciones, resaltados en color rojo
+3- ) Posteriormente agregamos estas modificaciones con 'git add -A'
+4- ) Luego si es conveniente ejecutamos el comando 'git commit -m "Mensaje" ' para hacer una descripcion de que se realizo
+5- ) Finalmente usamos el comando 'git push origin 'Nombre-Rama', para subir correctamente a github
+
+

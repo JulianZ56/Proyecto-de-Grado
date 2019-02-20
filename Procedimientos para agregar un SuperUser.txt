@@ -1,0 +1,11 @@
+Paraingresar un super usuario y dejar pasar al menu de inicio
+
+1- Nos ubicamos en la carpeta de nuestro proyecto y abrimos el cmd
+2- Ejecutamos el comando ---- php artisan tinker
+3- y luego estos comandos:
+
+$superuser = new App\SuperUser
+$superuser->email='braian@hotmail.com'
+$superuser->password=Hash::make('123456')
+$superuser->save()
+y exit
