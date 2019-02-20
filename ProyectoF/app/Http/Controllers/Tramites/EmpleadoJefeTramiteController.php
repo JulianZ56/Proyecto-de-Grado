@@ -259,6 +259,55 @@ class EmpleadoJefeTramiteController extends Controller
 
     }
 
+    public function reasignar($id){
+
+        $idE=auth()->user()->idDependencia;
+        $idjefe=auth()->user()->id;
+        $Tramite=Tramite::find($id);
+
+        $Empleado =Empleado::where('id',$Tramite->idEmpleado)->firstOrFail();
+        
+        $EmpleadosD = DB::table('empleados','dependencias')
+           ->join('dependencias', 'dependencias.id', '=', 'empleados.idDependencia')
+           ->select('empleados.*')
+           ->where('dependencias.id',$idE)
+           ->where('empleados.id','<>', $idjefe)
+           ->where('empleados.id','<>', $Empleado->id)
+           ->orderBy('empleados.nombreEmp', 'asc')
+           ->paginate(5);
+
+        return view('Cruds-EmpleadoJefe.Asignar.edit',compact('idE','Tramite','EmpleadosD','Empleado'));
+        
+    }
+
+    public function reasignar_empleado(Request $request, $id){
+
+        Tramite::find($id)->update([
+            'idEmpleado' => $request['idEmpleado'],
+        ]);
+
+        $idE=auth()->user()->idDependencia;
+        $empleados= Empleado::all();
+        $segui= Seguimiento::all();
+
+        $TramitesD = DB::table('dependencias','tramites','solicitantes','seguimientos')
+           ->join('catalogo_tramites', 'dependencias.id', '=', 'catalogo_tramites.idDependencia')
+           ->join('tramites', 'catalogo_tramites.id', '=', 'tramites.idCatalogoTramite')
+           ->join('solicitantes', 'tramites.idSolicitante', '=', 'solicitantes.id')
+           ->join('seguimientos', 'tramites.id', '=', 'seguimientos.idTramite')
+           ->select('tramites.*','catalogo_tramites.nombreCatalogo','catalogo_tramites.descripcionCatalogo','dependencias.nombreDependecia','solicitantes.nombreSolicitante','solicitantes.apellido')
+           ->where('dependencias.id',$idE)
+           ->where('seguimientos.EstadoTramite','Proceso')
+           ->orwhere('seguimientos.EstadoTramite','Revicion')
+           ->orderBy('dependencias.id', 'asc')
+           ->paginate(5); 
+    
+       
+        return view('Cruds-EmpleadoJefe.Proceso-Revision.index',compact('TramitesD', 'empleados', 'segui'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
+
+    }
+
     /**
      * Display the specified resource.
      *

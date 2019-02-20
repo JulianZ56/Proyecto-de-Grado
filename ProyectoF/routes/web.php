@@ -71,8 +71,12 @@ Route::prefix('empleadojefe')->group(function(){
 	
 	// ------------- Asignar---------------- //
 	Route::get ('/tramites/Asignar/{id}' , 'Tramites\EmpleadoJefeTramiteController@asignar')->name('empleadojefe.asignar-empleados');//Inicio
-    Route::post ('/tramites/Asignar/validacion/{id}' , 'Tramites\EmpleadoJefeTramiteController@asignar_empleado')->name('empleadojefe.validar-empleados');//Ver
-
+	Route::post ('/tramites/Asignar/validacion/{id}' , 'Tramites\EmpleadoJefeTramiteController@asignar_empleado')->name('empleadojefe.validar-empleados');//Ver
+	
+	// -------------Re Asignar---------------- //
+	Route::get ('/tramites/Re-asignar/{id}' , 'Tramites\EmpleadoJefeTramiteController@reasignar')->name('empleadojefe.reasignar-empleados');//Inicio
+	Route::post ('/tramites/Re-asignar/validacion/{id}' , 'Tramites\EmpleadoJefeTramiteController@reasignar_empleado')->name('empleadojefe.revalidar-empleados');//Ver
+	
     Route::get ('/tramites/Observaciones/{id}' , 'Tramites\EmpleadoJefeTramiteController@showObservaviones')->name('empleadojefe.empleadojefe-Observaciones');
 	
 

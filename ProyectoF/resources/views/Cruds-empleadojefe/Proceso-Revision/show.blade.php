@@ -64,9 +64,25 @@
 
 
             <div class="card" style=" border: black 1px solid;">
-                <a class="card-header" style="background-color:rgb(63, 105, 96);">
-                    <div class="titulodatos">Empleado asignado</div>
-                </a>
+                <div class="card-header" style="background-color:rgb(63, 105, 96);">
+
+                <div> 
+
+            <table class="table table-bordered" style="border: 0; margin:0px">
+                <tr>
+                    <td style="float: left; border:0;">
+                        <h5 class="titulodatos">Empleado Asignado</h5> 
+                    </td>
+                    <td style="float: right; border:0;">
+                        <a class="btn btn-warning btn-sm" style="float: right" href="{{ route('empleadojefe.reasignar-empleados' , $Tramite->id)}}" method="POST" >
+                        <i class="fas fa-plus-square"></i> Reasignar Otro Empleado</a>
+                    </td>
+                </tr>
+            </table>
+        
+ 
+            </div>
+                </div>
                 <div class="card-body">
                     <table class="table table-bordered">
 
@@ -110,57 +126,57 @@
 
 
 
-          <table class="table table-light table-striped">
-            <tbody>
-                <tr>
-                    <td class="columnas2" WIDTH="284"  style="border: gray 1px solid;"><strong>Estado del tramite</strong></td>
+            <table class="table table-light table-striped">
+                <tbody>
+                    <tr>
+                        <td class="columnas2" WIDTH="284" style="border: gray 1px solid;"><strong>Estado del tramite</strong></td>
                         <td class="bordes2">
                             <div class="row">
                                 <div class="col-6">{{$Segui->EstadoTramite}}</div>
-                              
+
                             </div>
-                    </td>
-                </tr>
-                <tr>
+                        </td>
+                    </tr>
+                    <tr>
                         <td class="columnas" style="border: gray 1px solid;"><strong>Observacion</strong></td>
                         <td class="bordes2">
                             <div class="row">
 
 
-        @if($encontrado2==true)
-            <div class="col-6">No hay Observaciones por el momento</div>
-                           
-        @else
-                    <div class="col-6">{{$observar->Observacion}}</div>
-                            <div  class="col-3">                       
-                                <a class="btn btn-outline-info" href="{{ route('empleadojefe.empleadojefe-Observaciones', $Tramite->id)}}">
-                                <i class="fas fa-pencil-alt"></i>Ver Observaciones</a>
-                            </div>
-            @endif
+                                @if($encontrado2==true)
+                                <div class="col-6">No hay Observaciones por el momento</div>
+
+                                @else
+                                <div class="col-6">{{$observar->Observacion}}</div>
+                                <div class="col-3">
+                                    <a class="btn btn-outline-info" href="{{ route('empleadojefe.empleadojefe-Observaciones', $Tramite->id)}}">
+                                        <i class="fas fa-pencil-alt"></i>Ver Observaciones</a>
+                                </div>
+                                @endif
 
 
-        
+
                         </td>
-                </tr>
-            </tbody>
-        </table>
+                    </tr>
+                </tbody>
+            </table>
 
-        <table class="table table-bordered">
+            <table class="table table-bordered">
                 <tr>
                     <td class="columnas" WIDTH="284" style="border: gray 1px solid;"><strong>Descripcion</strong></td>
-                    <td class="bordes2"  >{{ $Tramite->descripcionTramite }}</td>
+                    <td class="bordes2">{{ $Tramite->descripcionTramite }}</td>
                 </tr>
                 <tr>
-                    <td class="columnas2"  style="border: gray 1px solid;"><strong>Adjuntos</strong></td>
+                    <td class="columnas2" style="border: gray 1px solid;"><strong>Adjuntos</strong></td>
                     <td class="bordes2">Documentos </td>
                 </tr>
-        </table>
+            </table>
 
 
 
             <div class="card" style=" border: black 1px solid;" id="chat">
                 <div class="card-header" style="background-color:rgb(63, 105, 96);">
-                  <div class="titulotramite">Comentarios</div>  
+                    <div class="titulotramite">Comentarios</div>
                 </div>
 
                 <ul class="media-list">
@@ -173,43 +189,44 @@
                             <div class="media">
                                 <div class="media-body">
 
-                   <div id="mensajes"> 
-                        
+                                    <div id="mensajes">
 
-               @foreach ($Respuestas as $Respuesta)
-      
-                @if ( $Respuesta->correo == $Tramite->solicitante->email )
 
-            <div class="mensaje-amigo"> 
-            <div class="contenido"> 
-                 {{ $Respuesta->comentario }} 
-            </div> 
-            <div class="flecha-derecha"></div> 
-            <img src="/img/epa.png" alt="" class="foto" width="40px" height="40px"> 
-           <div class="fecha">{{ $Respuesta->nombre }}  {{ $Respuesta->created_at }}</div>  
-           </div>
+                                        @foreach ($Respuestas as $Respuesta)
 
-                @else 
-        
-            <div class="mensaje-autor"> 
-            <img  src="/img/soporte.png" alt="" class="foto" width="40px" height="40px"> 
-            <div class="flecha-izquierda"></div> 
-            <div class="contenido"> 
-                {{ $Respuesta->comentario }} 
-            </div> 
-            <div class="fecha">{{ $Respuesta->nombre }}  {{ $Respuesta->created_at }} </div> 
-             
-                
-                 @endif
-@endforeach  
- </div> 
+                                        @if ( $Respuesta->correo == $Tramite->solicitante->email )
+
+                                        <div class="mensaje-amigo">
+                                            <div class="contenido">
+                                                {{ $Respuesta->comentario }}
+                                            </div>
+                                            <div class="flecha-derecha"></div>
+                                            <img src="/img/epa.png" alt="" class="foto" width="40px" height="40px">
+                                            <div class="fecha">{{ $Respuesta->nombre }} {{ $Respuesta->created_at }}</div>
+                                        </div>
+
+                                        @else
+
+                                        <div class="mensaje-autor">
+                                            <img src="/img/soporte.png" alt="" class="foto" width="40px" height="40px">
+                                            <div class="flecha-izquierda"></div>
+                                            <div class="contenido">
+                                                {{ $Respuesta->comentario }}
+                                            </div>
+                                            <div class="fecha">{{ $Respuesta->nombre }} {{ $Respuesta->created_at }}
+                                            </div>
+
+
+                                            @endif
+                                            @endforeach
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                     </li>
                     <br>
 
-                
+
                 </ul>
 
             </div>

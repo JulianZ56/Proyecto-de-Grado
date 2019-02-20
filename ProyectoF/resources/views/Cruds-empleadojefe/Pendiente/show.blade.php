@@ -74,10 +74,6 @@
                         <h5 class="titulodatos">Empleado Asignado</h5> 
                     </td>
                     <td style="float: right; border:0;">
-                        <a class="btn btn-warning btn-sm" style="float: right" href="" method="POST" >
-                        <i class="fas fa-plus-square"></i> Reasignar Otro Empleado</a>
-                    </td>
-                    <td style="float: right; border:0;">
                         <a class="btn btn-success btn-sm" style="float: right" href="{{ route('empleadojefe.asignar-empleados' , $Tramite->id)}}" method="POST" >
                         <i class="fas fa-plus-square"></i> Asignar Empleado</a>
                     </td>
