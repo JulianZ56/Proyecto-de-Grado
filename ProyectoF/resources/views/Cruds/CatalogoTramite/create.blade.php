@@ -2,6 +2,8 @@
   
 @section('contenido')
 
+
+
 <table class="table table-bordered" style="border: 0; margin:0px">
     <tr>
         <th style="border: 0;">
@@ -53,8 +55,8 @@
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Nombre:</strong>
-                <input type="text" name="nombreCatalogo" class="form-control" placeholder="Nombre del Tramite" required>
+                <strong>Nombre Catalogo:</strong>
+                <input type="text" name="nombreCatalogo" class="form-control" placeholder="Nombre del Catalogo" required>
             </div>
         </div>
 
@@ -80,4 +82,11 @@
     
    
 </form>
+<br>
+
+
+
+
+
+
 @endsection
