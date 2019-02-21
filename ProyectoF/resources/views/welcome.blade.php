@@ -52,7 +52,9 @@
    <p>escolares de una manera facil y divertida atraves de internet</p> 
    <br>
   
-    <button class="btn btn-success" type="submit">Registrate</button> 
+    
+    <a class="btn btn-success" href="{{route('Registro-Usuario')}}">
+            <i class="fas fa-undo"></i> Regístrate</a></div>
 </center>
     </div>   
 </div>

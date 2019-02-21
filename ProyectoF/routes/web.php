@@ -5,6 +5,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/Registro', 'RegistroUsuarioController@index')->name('Registro-Usuario');
+
 //---------------login general-----------------
 Route::get('login', 'login\LoginController@showLoginForm')->name('login.general');
 Route::post('login', 'login\LoginController@login')->name('login.entrar');
