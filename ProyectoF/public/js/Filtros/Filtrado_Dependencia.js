@@ -8,7 +8,6 @@ function onSelectcatalogo(){
 
     if(dependencia_id){
         $('#Catalogo').prop('disabled', false);
-        
         $.get('/superuser/tramites/editar/catalogos/'+dependencia_id+'' , function (data) {       
         var html_select='<option value="" >-----Seleccione Catalogo-----</option>';
         for(var i=0; i<data.length; ++i)
@@ -23,6 +22,12 @@ function onSelectcatalogo(){
             return;
     }    
 }
+
+
+
+
+
+
 
 $(function(){
     $("#Dependencia").on("change", onSelectcatalogo1);   

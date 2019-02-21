@@ -41,7 +41,7 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Numero Etapas</strong><br>
+                <strong>Numero de Documentos</strong><br>
                 <input type="text" name="numeroDocumentos" value="{{ $Catalogotramites->numeroDocumentos }}" class="form-control" placeholder="Numero Etapas " required>
             </div>
         </div>
@@ -96,5 +96,10 @@
             </div>
 
 </form>
+
+ <div id="main">
+        <input type="button" id="btAdd" value="Añadir Elemento" class="bt" />
+       
+    </div>
 
 @endsection

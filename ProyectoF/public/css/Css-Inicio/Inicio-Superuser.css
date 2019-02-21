@@ -7,6 +7,7 @@
 body {
     font-family: 'Poppins', sans-serif;
     background: linear-gradient(to top, rgb(253, 253, 253), rgb(195, 231, 250));
+    
 }
 
 p {
@@ -334,4 +335,6 @@ transition: opacity 400ms ease-in;
 	box-shadow: 1px 1px 3px #000;
 }
 .closed:hover { background: #dddddd; }
+
+
 

@@ -8,7 +8,7 @@ class CatalogoTramite extends Model
 {
     //
      protected $fillable = [
-        'idDependencia', 'nombreCatalogo','numeroDocumentos' ,'descripcionCatalogo',
+        'idDependencia','nombreCatalogo','numeroDocumentos','descripcionCatalogo',
     ];
     public function tramite()
 	{

@@ -94,7 +94,7 @@
                         </li>
 
                         <li>
-                            <a href="#"> <i class="fas fa-file-alt"></i> Documentacion</a>
+                              <a href="{{ route('superuser.documentacion-index')}}"> <i class="fas fa-file-alt"></i> Documentacion</a>
                         </li>
 
                     </ul>

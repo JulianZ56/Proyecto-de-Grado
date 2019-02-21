@@ -169,11 +169,14 @@ Route::prefix('superuser')->group(function(){
 	// -------------Crud Catalogo tramite----------------
 	Route::get ('/catalogotramite' , 'Cruds\CatalogoTramiteController@index')->name('superuser.catalogotramite-index');//Inicio
 	Route::get ('/catalogotramite/crear' , 'Cruds\CatalogoTramiteController@create')->name('superuser.catalogotramite-crear');//Create
-	Route::post ('/catalogotramite/validacion' , 'Cruds\CatalogoTramiteController@store')->name('superuser.catalogotramite-validar');//Store
+	Route::post ('/catalogotramite/validacion' , 'Cruds\CatalogoTramiteController@store')->name('superuser.catalogotramite-validar');//
+	Route::post ('/catalogotramite/Documentos/{id}' , 'Cruds\CatalogoTramiteController@store2')->name('superuser.catalogotramite-validar2');//Store
     Route::get ('/catalogotramite/{id}' , 'Cruds\CatalogoTramiteController@destroy')->name('superuser.catalogotramite-eliminar');//Destroy
 	Route::get ('/catalogotramite/ver/{id}' , 'Cruds\CatalogoTramiteController@show')->name('superuser.catalogotramite-ver');//Ver
 	Route::get ('/catalogotramite/editar/{id}' , 'Cruds\CatalogoTramiteController@edit')->name('superuser.catalogotramite-editar');//Edit
 	Route::post ('/catalogotramite/actualizar/{id}' , 'Cruds\CatalogoTramiteController@update')->name('superuser.catalogotramite-actualizar');//Update 	
+
+
 
 	// -------------Crud Admin----------------
 	Route::get ('/admin' , 'Cruds\AdminController@index')->name('superuser.admin-index');//Inicio
@@ -225,6 +228,12 @@ Route::prefix('superuser')->group(function(){
 	Route::get ('/tramites/ver/{id}' , 'Cruds\TramitesController@show')->name('superuser.tramites-ver');//Ver
 	Route::get ('/tramites/editar/{id}' , 'Cruds\TramitesController@edit')->name('superuser.tramites-editar');//Edit
 	Route::post ('/tramites/actualizar/{id}' , 'Cruds\TramitesController@update')->name('superuser.tramites-actualizar');//Update 	
+
+		// -------------Crud Documentacion----------------
+
+    Route::get ('/documentacion' , 'Cruds\DocumentacionController@index')->name('superuser.documentacion-index');//Inicio
+     Route::get ('/documentacion/crear' , 'Cruds\DocumentacionController@create')->name('superuser.documentacion-crear');//Create
+
 
 	
 });
