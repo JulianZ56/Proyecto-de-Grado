@@ -6,6 +6,11 @@ Route::get('/', function () {
 });
 
 Route::get('/Registro', 'RegistroUsuarioController@index')->name('Registro-Usuario');
+Route::get ('/Registro/editar/departamento/{id}' , 'RegistroUsuarioController@byDepartamento')->name('Registro.departa-xd');
+Route::get ('/Registro/editar/ciudad/{id}' , 'RegistroUsuarioController@byCiudad')->name('Registro.ciudad-xd');
+Route::get ('/Registro/editar/comuna/{id}' , 'RegistroUsuarioController@byComuna')->name('Registro.comuna-xd');
+Route::get ('/Registro/editar/barrio/{id}' , 'RegistroUsuarioController@byBarrio')->name('Registro.bariro-xd');
+Route::post('/Registro/validar', 'RegistroUsuarioController@store')->name('Guardar-Usuario');
 
 //---------------login general-----------------
 Route::get('login', 'login\LoginController@showLoginForm')->name('login.general');
