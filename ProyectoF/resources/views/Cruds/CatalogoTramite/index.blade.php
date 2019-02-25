@@ -57,8 +57,8 @@
         <tr>
             <th>Id</th>
             <th>Id-Dependencia</th>
-            <th>Nombre</th>
-            <th>Etapas</th>
+            <th>Nombre Catalogo</th>
+            <th>#Documentos</th>
             <th>Creacion</th>
             <th>Action</th>
 

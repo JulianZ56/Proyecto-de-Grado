@@ -47,7 +47,7 @@
                 <li class="active">
                     <a href="#homeSubmenu" style="padding-left: 10px"><i class="fas fa-home"></i> Inicio</a>
                 <li>
-                    <a href="{{ route('solicitante.crearsolicitud-index') }}"><i class="fas fa-book"></i> Crear Tramites</a>
+                    <a href="{{ route('solicitante.crearsolicitud-index') }}"><i class="fas fa-plus-circle"></i> Crear Tramites</a>
                 </li>
                 </li>
                  <li>
@@ -58,13 +58,6 @@
 
                 </li>
                 
-              
-                <li>
-                    <a href="#">About Us</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
             </ul>
 
 

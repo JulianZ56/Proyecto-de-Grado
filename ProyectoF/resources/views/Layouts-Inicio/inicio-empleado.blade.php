@@ -53,12 +53,6 @@
                     <a href="{{ route('empleado.empleado-index') }}"><i class="fas fa-book"></i> Mis tramites</a>
                 </li>
               
-                <li>
-                    <a href="#">About Us</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
             </ul>
 
 

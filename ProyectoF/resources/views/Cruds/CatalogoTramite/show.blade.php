@@ -5,7 +5,7 @@
 <table class="table table-bordered" style="border: 0; margin:0px">
     <tr>
         <th style="border: 0;">
-            <h2 class="titulo">Ver catalogo</h2>
+            <h2 class="titulo">Ver Catalogo</h2>
         </th>
         <th style="float: right; border:0;"><a class="btn btn-outline-secondary" href="{{ route('superuser.catalogotramite-index') }}"><i
                     class="fas fa-undo"></i> Volver</a></div>
@@ -31,7 +31,7 @@
                 </div>
                
                  <div>
-                <strong>Numero Etapas:</strong>
+                <strong>Cantidad de Documentos Necesarios:</strong>
                 <strong class="mostrar"> {{ $Catalogotramites->numeroDocumentos }}</strong>              
                 </div>
                  <div>

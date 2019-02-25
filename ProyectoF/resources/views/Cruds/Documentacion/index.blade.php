@@ -5,7 +5,7 @@
 <table class="table table-bordered" style="border: 0; margin:0px">
     <tr>
         <th style="border: 0;">
-            <h2 class="titulo">Documentos con su Catalogo y Dependencia</h2>
+            <h2 class="titulo">Documentos Tramites</h2>
         </th>
        
     </tr>

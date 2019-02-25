@@ -71,7 +71,7 @@
           <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Descripcion</strong>
-                <textarea type="text" name="descripcionCatalogo" class="form-control" placeholder="Descripcion" required></textarea>
+                <textarea type="text" name="descripcionCatalogo" class="form-control" placeholder="Descripcion Detallada de las funciones del Tramite" required></textarea>
             </div>
         </div>
 

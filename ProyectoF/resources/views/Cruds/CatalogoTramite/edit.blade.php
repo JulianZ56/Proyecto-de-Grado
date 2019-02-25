@@ -97,9 +97,4 @@
 
 </form>
 
- <div id="main">
-        <input type="button" id="btAdd" value="Añadir Elemento" class="bt" />
-       
-    </div>
-
 @endsection
