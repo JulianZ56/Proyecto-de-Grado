@@ -20,7 +20,6 @@ class SolicitantesController extends Controller
 {
 
     public function byBarrio($id){
-
         return Barrio::where('idComuna', $id)->get();
     }
     public function __construct()

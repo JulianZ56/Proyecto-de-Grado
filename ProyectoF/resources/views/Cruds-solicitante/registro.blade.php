@@ -25,6 +25,9 @@
 
 <body style="background: linear-gradient(to top,rgb(255, 255, 255),rgb(218, 252, 215));">
 
+<script src="/js/Filtros/Filtrado_registro.js">
+</script>
+
     <div class="container" style="margin-top: 20px">
         <div class="card" style="border: 1px solid darkgreen">
             <div class="card-header" style="background-image: url(http://www.hdfondos.eu/pictures/2014/0318/1/green-diagonal-lines-wallpaper-60527.jpg);">
@@ -44,20 +47,14 @@
         <div class="card-body" style="background: linear-gradient(to top,rgb(215, 247, 252),rgb(255, 255, 255));">
 
 
+        @if ($message = Session::get('success'))
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Error!</strong> {{ $message }}
+        </div>
+        @endif
 
-            @if ($errors->any())
-            <div class="alert alert-warning alert-dismissible">
-                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                <strong>Atención!</strong> Por favor complete el campo.<br><br>
-                <ul>
-                    @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-            @endif
-
-            <form action="{{ route('superuser.solicitantes-validar') }}" method="POST">
+            <form action="{{ route('Guardar-Usuario') }}" method="POST">
                 @csrf
 
                 <div class="form-row">
@@ -67,51 +64,55 @@
                     </div>
                     <div class="form-group col-md-4">
                         <label for="inputPassword4">Apellidos: </label>
-                        <input type="text" name="apellido" class="form-control" placeholder="Apellidos">
+                        <input type="text" name="apellido" class="form-control" placeholder="Apellidos" required>
                     </div>
                     <div class="form-group col-md-4">
                         <label for="inputState">Tipo de Persona:</label>
-                        <select type="text" name="tipoPersona" class="form-control" placeholder="Tipo Persona">
-                            <option value="">-----Ocupacion-----</option>
-                            <option>Natural, etc</option>
+                        <select type="text" name="tipoPersona" class="form-control" placeholder="Tipo Persona" required>
+                            <option value="">-----Tipo de Persona-----</option>
+                            <option>Natural</option>
+                            <option>Juridica</option>
+                            <option>Otra</option>
                         </select>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group col-md-4">
-                        <label for="inputState">Seleccione Tipo de Identificacion:</label>
-                        <select id="inputState" class="form-control" required>
-                            <option value="">-----Tipo de Identificacion-----</option>
-                            <option>...</option>
+                        <label >Seleccione Tipo de Identificacion:</label>
+                        <select name="idIdentificacion" class="form-control" required>
+                        <option value="">------Tipo de Identificacion------</option>
+                                    @foreach($tipoidentificaciones as $Tipo)
+                                    <option value="{{ $Tipo->id }}">{{ $Tipo->nombreIdentificacion }}</option>
+                                    @endforeach
                         </select>
                     </div>
                     <div class="form-group col-md-3">
-                        <label for="inputPassword4">Numero Identificacion: </label>
-                        <input type="number" name="numeroIdentificacion" class="form-control" placeholder="Cedula">
+                        <label >Numero Identificacion: </label>
+                        <input type="number" name="numeroIdentificacion" class="form-control" placeholder="Cedula" required>
                     </div>
                     <div class="form-group col-md-3">
-                        <label for="inputPassword4">Celular: </label>
-                        <input type="number" name="celular" class="form-control" placeholder="Celular">
+                        <label >Celular: </label>
+                        <input type="number" name="celular" class="form-control" placeholder="Celular" required>
                     </div>
                     <div class="form-group col-md-2">
-                        <label for="inputState">Telefono (Fijo):</label>
-                        <input type="number" name="telefono" class="form-control" placeholder="Telefono">
+                        <label >Telefono (Fijo):</label>
+                        <input type="number" name="telefono" class="form-control" placeholder="Telefono" required>
                     </div>
                 </div>
 
                 <div class="form-row">
                     <div class="form-group col-md-4">
-                        <label for="inputState">Entidad Promotora de Salud (EPS):</label>
-                        <input type="text" name="eps" class="form-control" placeholder="Eps Afiliad@">
+                        <label >Entidad Promotora de Salud (EPS):</label>
+                        <input type="text" name="eps" class="form-control" placeholder="Eps Afiliad@" required>
                     </div>
                     <div class="form-group col-md-4">
-                        <label for="inputEmail4">Email</label>
-                        <input type="email" name="email" class="form-control" placeholder="Email">
+                        <label >Email</label>
+                        <input type="email" name="email" class="form-control" placeholder="Email" required>
                     </div>
                     <div class="form-group col-md-4">
-                        <label for="inputPassword4">Password</label>
-                        <input type="password" name="password" class="form-control" placeholder="Contraseña">
+                        <label >Password</label>
+                        <input type="password" name="password" class="form-control" placeholder="Contraseña" required>
                     </div>
                 </div>
 
@@ -125,6 +126,9 @@
                                         <label> Seleccione Nacionalidad: </label>
                                         <select id="select-nacionalidad" class="form-control" required>
                                             <option value="">-----Seleccione Nacionalidad-----</option>
+                                            @foreach($nacionalidades as $Nacionalidad)
+                                            <option value="{{ $Nacionalidad->id }}">{{ $Nacionalidad->nombre}}</option>
+                                            @endforeach
 
                                         </select>
                                     </div>
@@ -202,8 +206,11 @@
                             </div>
                             <div class="form-group">
                                 <label> Seleccione Ocupacion: </label>
-                                <select name="ocupacion" class="form-control" required>
-                                    <option value="">-----Ocupacion-----</option>
+                                <select name="idOcupacion" class="form-control" required>
+                                <option value="">------Ocupacion------</option>
+                                    @foreach($ocupaciones as $Ocupacion)
+                                    <option value="{{ $Ocupacion->id }}">{{ $Ocupacion->nombreOcupacion }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
