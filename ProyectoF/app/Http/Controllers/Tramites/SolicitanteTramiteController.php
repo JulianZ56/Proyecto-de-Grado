@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Tramites;
 use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\DB;
+
 
 use App\Dependencia;
 use App\Empleado;
@@ -14,6 +14,14 @@ use App\Respuestaseguimiento;
 use App\Tramite;
 use App\CatalogoTramite;
 use App\Solicitante;
+use App\Doc_Catalogo;
+use DB;
+
+
+
+
+
+
 
 class SolicitanteTramiteController extends Controller
 {
@@ -43,6 +51,10 @@ class SolicitanteTramiteController extends Controller
         ->with('i', (request()->input('page', 1) - 1) * 5);
 
     }
+
+
+
+
     
     public function show($id){
    
@@ -63,15 +75,12 @@ class SolicitanteTramiteController extends Controller
     public function update2(Request $request, $id){
 
         $crear=Seguimiento::where('idTramite',$id)->value('id');
-        $idS=auth()->user()->email;
-        $idN=auth()->user()->nombreSolicitante;
-        $idE=auth()->user()->apellido;
-
+      
         $chat = new Respuestaseguimiento;
         $chat->idSeguimiento=$crear;
-        $chat->correo=$idS;
-        $chat->nombre=$idN;
-        $chat->apellido= $idE;
+        $chat->correo=auth()->user()->email;
+        $chat->nombre=auth()->user()->nombreSolicitante;
+        $chat->apellido= auth()->user()->apellido;
         $chat->comentario=$request->input('comentario');
         $chat->save();
 
@@ -94,22 +103,45 @@ class SolicitanteTramiteController extends Controller
 
     public function validacion(Request $request){
         
-        $idE=auth()->user()->id;
+       
      
         $tramite = new Tramite;
-        $tramite->idSolicitante =$idE;
+        $tramite->idSolicitante =auth()->user()->id;
         $tramite->idEmpleado = null;
         $tramite->idCatalogoTramite=$request->get('idCatalogoTramite');
         $tramite->descripcionTramite=$request->input('descripcion');
         $tramite->save();
 
-        $segumiento = new Seguimiento;
+        
+
+
+
+       $segumiento = new Seguimiento;
         $segumiento->idTramite = $tramite->id;
-        $segumiento->EstadoTramite = "Sin Asignar";
+       $segumiento->EstadoTramite = "Sin Asignar";
         $segumiento->save(); 
 
-        return redirect()->route('solicitante.crearsolicitud-index')->with('success','Tramite Creado Satisfactoriamente!');
+
+ 
+
+        $Docu=$tramite->id;
+
+    
+
+
+        $nose= Tramite::where('tramites.id', $Docu)->value('idCatalogoTramite');
+       $nose2= Doc_Catalogo::where('doc__catalogos.idCatalogoTramite', $nose)->get();
+
+       
+
+    return redirect()->route('solicitante.solicitante-Doc',compact('nose2','Docu'));
         
     }
+
+
+
+
+
+
 
 }

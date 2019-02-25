@@ -17,4 +17,4 @@ $superuser->email='braian@hotmail.com'
 $superuser->password=Hash::make('123456')
 $superuser->save()
 
-php artisan make:controller TramitesRechazadosController --resource
+php artisan make:controller DocumentacionController --resource

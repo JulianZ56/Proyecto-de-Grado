@@ -93,7 +93,7 @@
         @else
                     <div class="col-6">{{$observar->Observacion}}</div>
                             <div  class="col-3">                       
-                                <a class="btn btn-outline-info" href="{{ route('empleado.empleado-Observaciones', $Tramite->id)}}">
+                                <a class="btn btn-outline-info" href="{{ route('solicitante.solicitante-actualizar-Doc', $Docu)}}">
                                 <i class="fas fa-pencil-alt"></i>Ver Observaciones</a>
                             </div>
             @endif

@@ -42,10 +42,12 @@ Route::prefix('solicitante')->group(function(){
 	Route::get ('/solicitante/editar/{id}' , 'Tramites\SolicitanteTramiteController@edit')->name('solicitante.solicitante-editar');//Edit
 	Route::post ('/solicitante/actualizar/{id}' , 'Tramites\SolicitanteTramiteController@update')->name('solicitante.solicitante-actualizar');//Update 
 	Route::post ('/solicitante/actualizar-chat/{id}' , 'Tramites\SolicitanteTramiteController@update2')->name('solicitante.solicitante-actualizar-chat');
+	
 
 	// ------- Crear Tramite ------
 	Route::get ('/CrearSolicitud' , 'Tramites\SolicitanteTramiteController@inicio_CrearTramite')->name('solicitante.crearsolicitud-index');//Inicio
 	Route::post ('/CrearSolicitud/validacion' , 'Tramites\SolicitanteTramiteController@validacion')->name('solicitante.creartramite-validar');//Store
+	Route::get ('/solicitante/CrearSolicitud/Document' , 'Tramites\SolicitanteTramiteController@Document')->name('solicitante.solicitante-Doc');
 	Route::get ('/CrearSolicitud/crear/{id}' , 'Tramites\SolicitanteTramiteController@byDependencia')->name('solicitante.filtro-xd');
 });
 
