@@ -16,67 +16,41 @@
    .header{ 
     width: 100%;
     height: 100%;
-    background-image:url('img/fondo1.jpg');
+    background:url('img/sijeñor.jpg') no-repeat center center fixed;
     background-size: cover;
     position: absolute;
    }
 
 </style>
-  
-<nav class="navbar navbar-expand-lg">
-   
-
-  <div class="collapse navbar-collapse" id="navbarColor03">
-    <ul class="navbar-nav mr-auto">
-      
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Correo">
-      <input class="form-control mr-sm-2" type="text" placeholder="Password">
-      <button class="btn btn-success" type="submit">Entrar</button>  
-    </form>
-  </div>
-</nav>
-<br>
-<br>
-<br>
-<div class="container"> 
+ 
+<div class="container" style="margin-top:120px"> 
     <div >
     <center> 
         <br>
         <br>
-   <img src="img/welcome.png"> 
+   <img src="img/Tramited-01.png" width="100%"> 
+  
    <br>
    <br>
    <p>Desde esta pagina solo registrandote puede realizar tus tramites</p> 
-   <p>escolares de una manera facil y divertida atraves de internet</p> 
+   <p>de una manera facil y divertida atraves de internet</p> 
    <br>
   
     
     <a class="btn btn-success" href="{{route('Registro-Usuario')}}">
-            <i class="fas fa-undo"></i> Regístrate</a></div>
-</center>
+            <i class="fas fa-undo"></i> Regístrate</a>
+    <a class="btn btn-info" href="">
+            <i class="fas fa-undo"></i> Ingresar</a>
+            
+            </div>
+</center> 
+
     </div>   
+
+    
 </div>
 <br>
-<br>
-<br>
-<br>
-<footer>
- 
-<nav class="navbar navbar-expand-lg ">
 
-  <div class="collapse navbar-collapse" id="navbarColor03">
-    <ul class="navbar-nav mr-auto">
-      
-    </ul>
-   <form  align="right" class="center">  
-   <button class="btn " type="submit">Admin</button>     
-      <button class="btn " type="submit">Admin</button>
-    </form>
-  </div>
-</nav> 
-</footer>
     </body>
     </div>
 </html>
