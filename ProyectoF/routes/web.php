@@ -52,7 +52,8 @@ Route::prefix('solicitante')->group(function(){
 	// ------- Crear Tramite ------
 	Route::get ('/CrearSolicitud' , 'Tramites\SolicitanteTramiteController@inicio_CrearTramite')->name('solicitante.crearsolicitud-index');//Inicio
 	Route::post ('/CrearSolicitud/validacion' , 'Tramites\SolicitanteTramiteController@validacion')->name('solicitante.creartramite-validar');//Store
-	Route::get ('/solicitante/CrearSolicitud/Document' , 'Tramites\SolicitanteTramiteController@Document')->name('solicitante.solicitante-Doc');
+Route::get ('/solicitante/CrearSolicitud/Documento' , 'Tramites\SolicitanteTramiteController@Documento')->name('solicitante.solicitante-Doc');
+Route::post ('/solicitante/CrearDocumento/{id}' , 'Tramites\SolicitanteTramiteController@Document')->name('solicitante.Sol-Documento');
 	Route::get ('/CrearSolicitud/crear/{id}' , 'Tramites\SolicitanteTramiteController@byDependencia')->name('solicitante.filtro-xd');
 });
 

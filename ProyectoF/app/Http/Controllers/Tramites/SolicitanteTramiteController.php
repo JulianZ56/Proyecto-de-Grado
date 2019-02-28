@@ -141,6 +141,62 @@ class SolicitanteTramiteController extends Controller
 
 
 
+    
+public function Documento(){
+        
+
+
+
+      $variable= Tramite::where('tramites.idSolicitante', auth()->user()->id)->orderBy('id', 'DESC')->first();
+
+      $Documento= Doc_Catalogo::where('doc__catalogos.idCatalogoTramite', $variable->idCatalogoTramite)->get();
+
+      $num= CatalogoTramite::where('id',  $variable->idCatalogoTramite)->value('numeroDocumentos');
+
+
+    return view('Cruds-solicitante.Crear-Tramite.DocumentosSol', compact('Documento','variable','num'));
+
+
+
+
+
+    }
+
+
+public function Document(Request $request, $id){
+        
+
+   
+    $trami= Tramite::where('tramites.id', $id)->first();
+
+    $num= CatalogoTramite::where('id',  $trami->idCatalogoTramite)->value('numeroDocumentos');
+
+
+
+
+for ($i = 0; $i < $num; $i++) {
+
+//"Documento$i"
+
+    echo"";
+
+
+
+}
+
+//if ($request->hasFlie('Documento0')) {
+    
+
+    //$file= $request->file('Documento0');
+    //$name= $file->getClientOriginaName();
+  //  return $request;
+//}
+
+return $request->file('Documento0');
+
+
+    }
+
 
 
 

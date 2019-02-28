@@ -20,22 +20,33 @@
   
       <h3>Complete la Información</h3>
   
+<form  action="{{route('solicitante.Sol-Documento', ['id' => $variable->id])}}" method="post" enctype="multipart/form-data">
+        
 
- <form class="form-group" method="POST" enctype="multipart/form-data" href="">
+ @csrf
 
-    @csrf
-
-  
-     
-
-                              <div class="input-group-append">
-
-                                    <button class="btn btn-success" type="submit"><i class="fas fa-edit" ></i>Enviarrrrr</button>
-
-                                </div>
-
-</form>
+@for ($i =0 ; $i < $num; $i++)
     
+
+    <div class="form-group">
+                         <label>{{ $Documento[$i]->nombreDoc}}</label>
+                   </div>
+
+    <div class="form-group">
+                 <input type="file" name="Documento{{$i}}">
+                   </div>
+
+@endfor
+
+
+
+
+
+
+        <button class="btn btn-info" type="submit">Enviar</button>
+</form>
+
+
 
 
 
