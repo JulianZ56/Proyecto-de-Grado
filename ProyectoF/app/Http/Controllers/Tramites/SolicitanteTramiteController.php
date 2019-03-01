@@ -15,6 +15,7 @@ use App\Tramite;
 use App\CatalogoTramite;
 use App\Solicitante;
 use App\Doc_Catalogo;
+use App\Documentacion;
 use DB;
 
 
@@ -43,7 +44,7 @@ class SolicitanteTramiteController extends Controller
     public function index(){
 
        $idE=auth()->user()->id;
-       $tramites = Tramite::where('idSolicitante',$idE)->orderBy('id', 'asc')->paginate(5);
+       $tramites = Tramite::where('idSolicitante',$idE)->orderBy('id', 'DESC')->paginate(5);
        $empleados= Empleado::all();
        $segui= Seguimiento::all();
   
@@ -62,13 +63,17 @@ class SolicitanteTramiteController extends Controller
         $Respuestas=Respuestaseguimiento::where('idSeguimiento',$crear)->get();
         $Tramite=Tramite::find($id);
         $Segui=Seguimiento::where('idTramite',$id)->value('EstadoTramite');
+        $Documento=Documentacion::where('idTramite',$id)->get();
+
+
+
 
         $encontrado=false;
             if($Tramite->idEmpleado == null){
-                $encontrado=true;
+               $encontrado=true;
         }
 
-        return view('Cruds-solicitante.Tramites-Solicitante.show',compact('Tramite','Segui','Respuestas', 'encontrado'));
+        return view('Cruds-solicitante.Tramites-Solicitante.show',compact('Tramite','Segui','Respuestas', 'encontrado','Documento'));
 
     }
 
@@ -116,9 +121,9 @@ class SolicitanteTramiteController extends Controller
 
 
 
-       $segumiento = new Seguimiento;
+        $segumiento = new Seguimiento;
         $segumiento->idTramite = $tramite->id;
-       $segumiento->EstadoTramite = "Sin Asignar";
+        $segumiento->EstadoTramite = "Sin Asignar";
         $segumiento->save(); 
 
 
@@ -167,9 +172,9 @@ public function Document(Request $request, $id){
         
 
    
-    $trami= Tramite::where('tramites.id', $id)->first();
+     $trami= Tramite::where('tramites.id', $id)->first();
 
-    $num= CatalogoTramite::where('id',  $trami->idCatalogoTramite)->value('numeroDocumentos');
+     $num= CatalogoTramite::where('id',  $trami->idCatalogoTramite)->value('numeroDocumentos');
 
 
 
@@ -178,7 +183,14 @@ for ($i = 0; $i < $num; $i++) {
 
 //"Documento$i"
 
-    echo"";
+
+
+
+        $Documen = new Documentacion;
+        $Documen->idTramite = $id;
+        $Documen->nombreDocumento = $request->file("Documento$i")->store('public');
+        $Documen->save(); 
+
 
 
 
@@ -192,7 +204,15 @@ for ($i = 0; $i < $num; $i++) {
   //  return $request;
 //}
 
-return $request->file('Documento0');
+//return $request->file('Documento0');
+
+      
+       $tramites = Tramite::where('idSolicitante',auth()->user()->id)->orderBy('id', 'DESC')->paginate(5);
+       $empleados= Empleado::all();
+       $segui= Seguimiento::all();
+
+    return redirect()->route('solicitante.solicitante-index',compact('tramites', 'empleados', 'segui'))
+        ->with('i', (request()->input('page', 1) - 1) * 5);
 
 
     }

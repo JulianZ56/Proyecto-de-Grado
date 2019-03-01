@@ -73,7 +73,7 @@
                 $CatalogoTramite->dependencia->nombreDependecia }})</td>
             <td style="border: 1px green solid;" >{{ $CatalogoTramite->nombreCatalogo }}</td>
             <td style="border: 1px green solid;">{{ $CatalogoTramite->numeroDocumentos }}</td>
-            <td style="border: 1px green solid;">{{ $CatalogoTramite->created_at->format('Y-M-d') }}</td>
+            <td style="border: 1px green solid;">{{ $CatalogoTramite->created_at }}</td>
             <td style="border: 1px green solid;">
 
                 <a class="btn btn-outline-secondary" href="{{ route('superuser.catalogotramite-ver', $CatalogoTramite->id)}}"><i

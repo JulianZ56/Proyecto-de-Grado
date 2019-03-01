@@ -114,8 +114,20 @@
                         <td class="bordes2">{{ $Tramite->descripcionTramite }}</td>
                     </tr>
                     <tr>
+
+
+
                         <td class="columnas2" style="border: gray 1px solid;"><strong>Adjuntos</strong></td>
-                        <td class="bordes2">Documentos </td>
+                        <td class="bordes2">
+ @foreach ($Documento as $Documentos)
+
+                            {{ $Documentos->nombreDocumento }} 
+                            <br>
+  @endforeach
+
+                        </td>
+
+
                     </tr>
                 </tbody>
             </table>

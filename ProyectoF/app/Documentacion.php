@@ -8,7 +8,7 @@ class Documentacion extends Model
 {
     //
      protected $fillable = [
-        'idTramite', 'nombreDocumento', 'documentoPdf',
+        'idTramite', 'nombreDocumento',
     ];
     public function tramite()
 	{
