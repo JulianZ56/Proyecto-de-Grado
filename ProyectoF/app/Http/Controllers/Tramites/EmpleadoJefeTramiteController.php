@@ -12,8 +12,10 @@ use App\Tramite;
 use App\Dependencia;
 use App\CatalogoTramite;
 use App\Observacion;
-
+use App\Documentacion;
+use Storage;
 use DB;
+
 
 
 class EmpleadoJefeTramiteController extends Controller
@@ -78,6 +80,32 @@ class EmpleadoJefeTramiteController extends Controller
         return view('Cruds-EmpleadoJefe.Pendiente.index',compact('TramitesD', 'empleados', 'segui'))
         ->with('i', (request()->input('page', 1) - 1) * 5);
     }
+
+
+
+    public function showDuc($id){
+   
+     $Documento=Documentacion::where('idTramite',$id)->get();
+
+
+ return view('Cruds-empleadojefe.Tramites.showDoc',compact('Documento'));
+
+}
+
+
+public function descarga($id)
+    {
+        
+
+     $Documento=Documentacion::where('id',$id)->value('nombreDocumento');
+
+
+      return  Storage::disk('archivos')->download($Documento);
+
+
+    }
+
+
 
     public function mostrar_Pendientes($id){
 

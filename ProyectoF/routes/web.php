@@ -24,6 +24,11 @@ Route::prefix('empleado')->group(function(){
 	Route::get('/' , 'controladorEmpleado\EmpleadoControlador@index')->name('empleado.inicio.login');
 	Route::post('/logout' , 'login\EmpleadoLoginController@logout')->name('empleado.salir.login');
 
+
+	
+	 Route::get ('/tramites/ver-Documentos/{id}' , 'Tramites\EmpleadoTramitesController@showDuc')->name('empleado.empleado-ver-Doc');//Ver
+	    Route::get ('/tramites/descargar/{id}' , 'Tramites\EmpleadoTramitesController@descarga')->name('empleado.empleado-ver-descargar');//
+
 	// -------------Ver Mis tramites----------------
 	Route::get ('/tramites' , 'Tramites\EmpleadoTramitesController@index')->name('empleado.empleado-index');//Inicio
 	Route::get ('/tramites/ver/{id}' , 'Tramites\EmpleadoTramitesController@show')->name('empleado.empleado-ver');//Ver
@@ -47,7 +52,11 @@ Route::prefix('solicitante')->group(function(){
 	Route::get ('/solicitante/editar/{id}' , 'Tramites\SolicitanteTramiteController@edit')->name('solicitante.solicitante-editar');//Edit
 	Route::post ('/solicitante/actualizar/{id}' , 'Tramites\SolicitanteTramiteController@update')->name('solicitante.solicitante-actualizar');//Update 
 	Route::post ('/solicitante/actualizar-chat/{id}' , 'Tramites\SolicitanteTramiteController@update2')->name('solicitante.solicitante-actualizar-chat');
-	
+
+
+    Route::get ('/solicitante/ver-Documentos/{id}' , 'Tramites\SolicitanteTramiteController@showDuc')->name('solicitante.solicitante-ver-Doc');//Ver
+    Route::get ('/solicitante/descargar/{id}' , 'Tramites\SolicitanteTramiteController@descarga')->name('solicitante.solicitante-ver-descargar');//
+
 
 	// ------- Crear Tramite ------
 	Route::get ('/CrearSolicitud' , 'Tramites\SolicitanteTramiteController@inicio_CrearTramite')->name('solicitante.crearsolicitud-index');//Inicio
@@ -62,6 +71,10 @@ Route::prefix('empleadojefe')->group(function(){
 	//------------------Empleado Jefe------------------------
 	Route::get('/', 'controladorEmpleadoJefe\EmpleadoJefeControlador@index')->name('empleadojefe.inicio.login');
 	Route::post('/logout' , 'login\EmpleadoJefe@logout')->name('empleadojefe.salir.login');
+
+
+	 Route::get ('/tramites/ver-Documentos/{id}' , 'Tramites\EmpleadoJefeTramiteController@showDuc')->name('empleadojefe.empleadojefe-ver-Doc');//Ver
+	    Route::get ('/tramites/descargar/{id}' , 'Tramites\EmpleadoJefeTramiteController@descarga')->name('empleadojefe.empleadojefe-ver-descargar');//
 
 	// -------------Tramites Finalizados----------------
 	Route::get ('/tramites/Finalizados' , 'Tramites\EmpleadoJefeTramiteController@index')->name('empleadojefe.empleadojefe-index');//Inicio

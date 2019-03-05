@@ -17,7 +17,7 @@ class CreateTramitesTable extends Migration
             $table->increments('id');
             $table->integer('idSolicitante');
             $table->integer('idCatalogoTramite');
-            $table->integer('idEmpleado');
+            $table->integer('idEmpleado')->null();
             $table->string('descripcionTramite');
             $table->timestamps();
         });

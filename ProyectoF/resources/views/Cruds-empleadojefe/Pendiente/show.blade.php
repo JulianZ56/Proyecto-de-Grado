@@ -112,7 +112,7 @@
                             </tr>
                             <tr align="center" style=" border: gray 2px solid">
 
-                                <td class="bordes"s>Crear telefono en la tabla</td>
+                                <td class="bordes">Sin asignar</td>
                                 <td class="bordes">Sin asignar</td>
                                 <td class="bordes">Sin asignar</td>
                                 
@@ -147,7 +147,7 @@
                 </tr>
                 <tr>
                     <td class="columnas2"  style="border: gray 1px solid;"><strong>Adjuntos</strong></td>
-                    <td class="bordes2">Documentos </td>
+                    <td class="bordes2">      <a class='btn btn-info' href="{{ route('empleadojefe.empleadojefe-ver-Doc',$Tramite->id) }}">Ver Documentos</a></td>
                 </tr>
         </table>
 

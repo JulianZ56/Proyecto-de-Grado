@@ -10,6 +10,13 @@ use App\Seguimiento;
 use App\Respuestaseguimiento;
 use App\Tramite;
 use App\Observacion;
+use App\CatalogoTramite;
+use App\Documentacion;
+use Storage;
+use DB;
+use App\Dependencia;
+
+
 
 class EmpleadoTramitesController extends Controller
 {
@@ -55,6 +62,28 @@ class EmpleadoTramitesController extends Controller
 
 
         return view('Cruds-empleado.Tramites.show',compact('Tramite','Segui','Respuestas','observar','encontrado'));
+
+    }
+
+        public function showDuc($id){
+   
+     $Documento=Documentacion::where('idTramite',$id)->get();
+
+
+ return view('Cruds-empleado.Tramites.showDoc',compact('Documento'));
+
+}
+
+
+public function descarga($id)
+    {
+        
+
+     $Documento=Documentacion::where('id',$id)->value('nombreDocumento');
+
+
+      return  Storage::disk('archivos')->download($Documento);
+
 
     }
 

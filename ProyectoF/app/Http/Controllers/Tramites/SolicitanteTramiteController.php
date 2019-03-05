@@ -16,6 +16,7 @@ use App\CatalogoTramite;
 use App\Solicitante;
 use App\Doc_Catalogo;
 use App\Documentacion;
+use Storage;
 use DB;
 
 
@@ -76,6 +77,30 @@ class SolicitanteTramiteController extends Controller
         return view('Cruds-solicitante.Tramites-Solicitante.show',compact('Tramite','Segui','Respuestas', 'encontrado','Documento'));
 
     }
+
+
+    public function showDuc($id){
+   
+     $Documento=Documentacion::where('idTramite',$id)->get();
+
+
+ return view('Cruds-solicitante.Tramites-Solicitante.showDoc',compact('Documento'));
+
+}
+
+   public function descarga($id)
+    {
+        
+
+     $Documento=Documentacion::where('id',$id)->value('nombreDocumento');
+
+
+      return  Storage::disk('archivos')->download($Documento);
+
+
+    }
+
+
 
     public function update2(Request $request, $id){
 
@@ -174,27 +199,25 @@ public function Document(Request $request, $id){
    
      $trami= Tramite::where('tramites.id', $id)->first();
 
-     $num= CatalogoTramite::where('id',  $trami->idCatalogoTramite)->value('numeroDocumentos');
+     $num= CatalogoTramite::where('id',  $trami->idCatalogoTramite)->first();
+
+    $nombrear=Doc_Catalogo::where('idCatalogoTramite',  $num->id)->get();
 
 
 
-
-for ($i = 0; $i < $num; $i++) {
-
-//"Documento$i"
-
+for ($i = 0; $i < $num->numeroDocumentos; $i++) {
 
 
 
         $Documen = new Documentacion;
         $Documen->idTramite = $id;
-        $Documen->nombreDocumento = $request->file("Documento$i")->store('public');
+        $Documen->nombrearchivo = $nombrear[$i]->nombreDoc;
+        $Documen->nombreDocumento = Storage::disk('archivos')->put('archivos', $request->file("Documento$i"));
         $Documen->save(); 
 
 
-
-
 }
+
 
 //if ($request->hasFlie('Documento0')) {
     
@@ -207,9 +230,9 @@ for ($i = 0; $i < $num; $i++) {
 //return $request->file('Documento0');
 
       
-       $tramites = Tramite::where('idSolicitante',auth()->user()->id)->orderBy('id', 'DESC')->paginate(5);
-       $empleados= Empleado::all();
-       $segui= Seguimiento::all();
+      $tramites = Tramite::where('idSolicitante',auth()->user()->id)->orderBy('id', 'DESC')->paginate(5);
+     $empleados= Empleado::all();
+     $segui= Seguimiento::all();
 
     return redirect()->route('solicitante.solicitante-index',compact('tramites', 'empleados', 'segui'))
         ->with('i', (request()->input('page', 1) - 1) * 5);

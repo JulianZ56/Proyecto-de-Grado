@@ -93,7 +93,7 @@
         @else
                     <div class="col-6">{{$observar->Observacion}}</div>
                             <div  class="col-3">                       
-                                <a class="btn btn-outline-info" href="{{ route('solicitante.solicitante-actualizar-Doc', $Docu)}}">
+                                 <a class="btn btn-outline-info" href="{{ route('empleado.empleado-Observaciones', $Tramite->id)}}">
                                 <i class="fas fa-pencil-alt"></i>Ver Observaciones</a>
                             </div>
             @endif
@@ -112,7 +112,8 @@
                 </tr>
                 <tr>
                     <td class="columnas2"  style="border: gray 1px solid;"><strong>Adjuntos</strong></td>
-                    <td class="bordes2">Documentos </td>
+                    <td class="bordes2"> <a class='btn btn-info' href="{{ route('empleado.empleado-ver-Doc',$Tramite->id) }}">Ver Documentos</a>
+                    </td>
                 </tr>
         </table>
 

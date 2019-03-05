@@ -102,6 +102,7 @@
             </div>
         <br>
 
+    
 
             <table class="table table-bordered">
                 <tbody>
@@ -119,12 +120,10 @@
 
                         <td class="columnas2" style="border: gray 1px solid;"><strong>Adjuntos</strong></td>
                         <td class="bordes2">
- @foreach ($Documento as $Documentos)
 
-                            {{ $Documentos->nombreDocumento }} 
-                            <br>
-  @endforeach
+                    <a class='btn btn-info' href="{{ route('solicitante.solicitante-ver-Doc',$Tramite->id) }}">Ver Documentos</a>
 
+                       
                         </td>
 
 
@@ -198,8 +197,6 @@
             </div>
         </div>
     </div>
-
-
 
 
 

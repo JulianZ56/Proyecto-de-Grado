@@ -9,7 +9,8 @@
 6- Dentro ejecutamos el comando 'composer update' o 'composer install'
 7- Esperamos que haga las instalaciones correspondientes y al terminar ejecutamos el comando 'php artisan key:generate' e inmediatamente nos generara un codigo o llave y la podemos ver en el archivo .env que modificamos, se encuerntra en la tercera casilla APP_KEY
 8- Finalmente refrescamos las migraciones con el comando 'php artisan migrate:refresh', de esa manera nos refrescara todas las migraciones y podemos ver en nuestra base de datos correspondiente las tablas creadas 
-9- Iniciar el servidor para ver el welcome de laravel
+9- php artisan storage:link
+10- Iniciar el servidor para ver el welcome de laravel
 
 
 $superuser = new App\SuperUser

@@ -79,6 +79,13 @@
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
+                <strong>telefono:</strong>
+                <input type="text" name="telefonoEmp" class="form-control" placeholder="telefono Empleado" required>
+            </div>
+        </div>
+
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
                 <strong>Email:</strong>
                 <input type="email" name="email" class="form-control" placeholder="Email" required=”required”>
             </div>

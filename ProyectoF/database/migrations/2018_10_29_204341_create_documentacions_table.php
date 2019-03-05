@@ -16,6 +16,7 @@ class CreateDocumentacionsTable extends Migration
         Schema::create('documentacions', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('idTramite');
+             $table->string('nombrearchivo');
             $table->string('nombreDocumento');
             $table->timestamps();
         });

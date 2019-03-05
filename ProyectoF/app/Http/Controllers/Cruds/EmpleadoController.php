@@ -91,6 +91,7 @@ class EmpleadoController extends Controller
             $empleado->nombreEmp=$request->input('nombreEmp');
             $empleado->apellidoEmp=$request->input('apellidoEmp');
             $empleado->identificacion=$request->input('identificacion');
+            $empleado->telefonoEmp=$request->input('telefonoEmp');
             $empleado->cargoEmp=$request->input('cargoEmp');
             $empleado->email=$request->input('email');
             $empleado->password = bcrypt($request->input('password'));

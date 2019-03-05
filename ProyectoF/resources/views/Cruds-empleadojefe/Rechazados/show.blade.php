@@ -93,7 +93,7 @@
                             </tr>
                             <tr align="center" style=" border: gray 2px solid">
 
-                                <td class="bordes"s>Crear telefono en la tabla</td>
+                                <td class="bordes">{{ $Tramite->empleado->telefonoEmp }} </td>
                                 <td class="bordes">{{ $Tramite->empleado->email }}</td>
                                 <td class="bordes">{{ $Tramite->empleado->cargoEmp }}</td>
                                 
@@ -146,16 +146,18 @@
             </tbody>
         </table>
 
-        <table class="table table-bordered">
+         <table class="table table-bordered">
                 <tr>
                     <td class="columnas" WIDTH="284" style="border: gray 1px solid;"><strong>Descripcion</strong></td>
-                    <td class="bordes2"  >{{ $Tramite->descripcionTramite }}</td>
+                    <td class="bordes2">{{ $Tramite->descripcionTramite }}</td>
                 </tr>
                 <tr>
-                    <td class="columnas2"  style="border: gray 1px solid;"><strong>Adjuntos</strong></td>
-                    <td class="bordes2">Documentos </td>
+                    <td class="columnas2" style="border: gray 1px solid;"><strong>Adjuntos</strong></td>
+                    <td class="bordes2">
+                     <a class='btn btn-info' href="{{ route('empleadojefe.empleadojefe-ver-Doc',$Tramite->id) }}">Ver Documentos</a>
+                 </td>
                 </tr>
-        </table>
+            </table>
 
 
 

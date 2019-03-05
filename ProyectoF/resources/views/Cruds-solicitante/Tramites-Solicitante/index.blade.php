@@ -49,6 +49,7 @@
 </div>
 @endif
 
+
         @foreach ($tramites as $Tramite)
 
   <div class="card " style=" border: black 1px solid;">
