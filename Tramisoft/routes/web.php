@@ -6,6 +6,9 @@ Route::get('/', function () {
 });
 
 Route::get('/Registro', 'RegistroUsuarioController@index')->name('Registro-Usuario');
+Route::get('/loguin', 'RegistroUsuarioController@inicio')->name('inicio-usuario');
+
+
 Route::get ('/Registro/editar/departamento/{id}' , 'RegistroUsuarioController@byDepartamento')->name('Registro.departa-xd');
 Route::get ('/Registro/editar/ciudad/{id}' , 'RegistroUsuarioController@byCiudad')->name('Registro.ciudad-xd');
 Route::get ('/Registro/editar/comuna/{id}' , 'RegistroUsuarioController@byComuna')->name('Registro.comuna-xd');

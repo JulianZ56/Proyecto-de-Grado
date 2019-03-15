@@ -58,9 +58,10 @@ class RegistroUsuarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function inicio()
     {
-        //
+        
+        return view('login.superuser-login');
     }
 
     /**

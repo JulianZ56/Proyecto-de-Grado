@@ -39,8 +39,8 @@
     
     <a class="btn btn-success" href="{{route('Registro-Usuario')}}">
             <i class="fas fa-undo"></i> Regístrate</a>
-    <a class="btn btn-info" href="">
-            <i class="fas fa-undo"></i> Ingresar</a>
+    <a class="btn btn-info" href="{{route('inicio-usuario')}}">
+            <i class="fas fa-undo" ></i> Ingresar</a>
             
             </div>
 </center> 

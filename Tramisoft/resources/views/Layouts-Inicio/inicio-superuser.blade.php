@@ -37,7 +37,7 @@
         <!-- Sidebar Holder -->
         <nav id="sidebar">
             <div class="sidebar-header" style="color">
-                <img src="https://pngimage.net/wp-content/uploads/2018/05/admin-png-6.png" class="rounded" alt="Cinque Terre"
+                <img src="https://www.ge2.co/wp-content/uploads/2018/05/administrador.png" class="rounded" alt="Cinque Terre"
                     width="100" height="100" style="margin-left: 40px">
                 <h4 style="padding-top:5px" class="container" align="center" >Bienvenido Admin</h4>
                 <p style="color:cyan" class="container" align="center"> Realiza tu gestión</p>

@@ -1,0 +1,58 @@
+Instructivo para la instalacion del proyecto
+
+1.Instalar el programa XAMPP:
+
+En el siguiente link puede encontrar el sitio web de descarga.
+https://www.apachefriends.org/es/index.html
+
+2.Instalar Composer 
+En la carpeta estara el instalador de Composer realizar la instalacion.
+
+3.Ejecucion del proyecto.
+
+3.1 Abrir el xammp previamente instalado
+3.2 Se abrira un panel de control donde le daremos start a la opcion Apache y MySQL.
+3.3 En el mismo panel de control le daremos clik en admin se abrira una pestaña en el navegador donde
+esta el gestor de base de datos PHP MyAdmin.
+
+4. Crear el esquema de base de datos llamada proyecto_tramisoft.
+
+5. Abrimos el cmd de nuestro equipo y nos dirijimos a la ruta donde esta el proyecto.
+
+6. Dentro ejecutamos el comando 'composer update' o 'composer install' (sin comillas simples)
+
+7.Despues de terminar el proceso de 'composer update' ejecutamos el comando 'php artisan key:generate' (sin comillas simples) el cual nos 
+genera una llave unica para el proyecto 
+
+8.Dirigirse a la carpeta del proyecto y abrir el archivo .env en un bloc de notas
+
+9.Verificar la conexion a la base de datos 
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=proyecto_tramisoft
+DB_USERNAME=root
+DB_PASSWORD=""
+
+Hay que tener en cuenta no puede estar siendo utilizado por otro progama si no no podra conectarse.
+
+10. Finalmente en el cdm no ubicamos en la carpeta de proyecto y procedemos a refrescamos las migraciones 
+con el comando 'php artisan migrate:refresh' (sin comillas simples), de esa manera nos refrescara todas las migraciones y 
+podemos ver en nuestra base de datos correspondiente las tablas creadas.
+
+11. Luego de terminar el proceso anterior ejecutamos 'php artisan storage:link' (sin comillas simples)
+
+12. luego ejecutamos 'php artisan tinker' (sin comillas simples) para agregar un Administrador y corremos los siguientes comandos
+
+$superuser = new App\SuperUser
+$superuser->email='correo eletronico VALIDO'
+$superuser->password=Hash::make('Contraseña minimo de 6 caracteres')
+$superuser->save()
+
+exit
+
+13.Finalmente ejecutamos el comando en el cmd  'php artisan serve' (sin comillas simples)
+
+14.Abrir una pestaña en el navegador y en la barra de dirreciones copiamos http://localhost:8000
+

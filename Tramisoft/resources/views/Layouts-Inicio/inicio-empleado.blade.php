@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <title>Empleado Jefe Tramisoft</title>
+    <title>Empleado Tramisoft</title>
 
     <!-- Link Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4"
@@ -23,6 +23,7 @@
     <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
         crossorigin="anonymous"></script>
     <script type="text/javascript" src="http://code.jquery.com/jquery-3.1.1.js"></script>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
 
 
 </head>
@@ -34,10 +35,10 @@
         <!-- Sidebar Holder -->
         <nav id="sidebar">
             <div class="sidebar-header" style="color">
-                <img src="https://pngimage.net/wp-content/uploads/2018/05/admin-png-6.png" class="rounded" alt="Cinque Terre"
+                <img src="https://www.ge2.co/wp-content/uploads/2018/05/administrador.png" class="rounded" alt="Cinque Terre"
                     width="100" height="100" style="margin-left: 40px">
                 <h4 style="padding-top:5px;" align="center" class="container">Bienvenido {{
-                    auth()->user()->nombreEmp }}</h4>
+                            auth()->user()->nombreEmp }}</h4>
                 <p style="color:cyan" align="center" class="container"> Realiza tu gestión</p>
             </div>
 
@@ -46,30 +47,12 @@
 
                 <li class="active">
                     <a href="#homeSubmenu" style="padding-left: 10px"><i class="fas fa-home"></i> Inicio</a>
-                </li>
-                <li>
-                    <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-book"></i>
-                        Tramites</a>
-                    <ul class="collapse list-unstyled" id="pageSubmenu2">
-                        <li>
-                            <a href="{{ route('empleadojefe.empleadojefe-index-pendiente') }}"><i class="fas fa-hand-paper"></i> 
-                                Sin Asignar</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('empleadojefe.empleadojefe-index-Proceso') }}"><i class="fas fa-clock"></i> En
-                                Proceso</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('empleadojefe.empleadojefe-index') }}"><i class="fas fa-thumbs-up"></i>
-                                Finalizados</a>
-                        </li>
-                        <li>
-                            <a href="{{ route('empleadojefe.empleadojefe-index-Rechazados') }}"><i class="fas fa-times"></i>
-                                Rechazados</a>
-                        </li>
 
-                    </ul>
                 </li>
+                 <li>
+                    <a href="{{ route('empleado.empleado-index') }}"><i class="fas fa-book"></i> Mis tramites</a>
+                </li>
+              
             </ul>
 
 
@@ -96,7 +79,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-
+                       
                     </ul>
 
                     <div class="dropdown">
@@ -107,11 +90,11 @@
 
                         <ul class="dropdown-menu dropdown-menu-right">
                             <li class="navigation__item active session">
-                                <a href="{{ route('empleadojefe.salir.login') }}" class="is-active barra-hover" onclick="event.preventDefault(); document.getElementById('regresar').submit();">
+                                <a href="{{ route('empleado.salir.login') }}" class="is-active barra-hover" onclick="event.preventDefault(); document.getElementById('regresar').submit();">
                                     <i class="fas fa-sign-out-alt" style="padding-left:5px"></i> Cerrar Sesion</a>
                             </li>
 
-                            <form id="regresar" action="{{route('empleadojefe.salir.login')}}" method="POST" style="display:none;">
+                            <form id="regresar" action="{{route('empleado.salir.login')}}" method="POST" style="display:none;">
                                 @csrf
                             </form>
 
