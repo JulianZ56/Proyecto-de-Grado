@@ -256,7 +256,8 @@ Route::prefix('superuser')->group(function(){
 		// -------------Crud Documentacion----------------
 
     Route::get ('/documentacion' , 'Cruds\DocumentacionController@index')->name('superuser.documentacion-index');//Inicio
-     Route::get ('/documentacion/crear' , 'Cruds\DocumentacionController@create')->name('superuser.documentacion-crear');//Create
+	 Route::get ('/documentacion/crear' , 'Cruds\DocumentacionController@create')->name('superuser.documentacion-crear');//Create
+	 Route::get ('/documentacion/eliminar/{id}' , 'Cruds\DocumentacionController@destroy')->name('superuser.documentos-eliminar');//Create
 
 
 	

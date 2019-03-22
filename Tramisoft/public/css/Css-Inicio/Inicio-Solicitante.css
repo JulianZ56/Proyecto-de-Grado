@@ -285,7 +285,7 @@ select {
    
 }
 strong.mostrar{
-    color:rgb(204, 22, 22); 
+    color:rgb(14, 13, 13); 
     padding-left:5px; 
     padding-right:15px; 
     
@@ -432,7 +432,7 @@ transition: opacity 400ms ease-in;
     margin-right: 35px; 
 } 
 #chat #mensajes .mensaje-amigo .contenido{ 
-    background-color: #3990BF; 
+    background-color: rgb(57, 191, 90); 
     border-radius: 5px; 
     color: white; 
     display: inline-block; 
@@ -451,7 +451,7 @@ transition: opacity 400ms ease-in;
     height: 0;  
     border-top: 0px solid transparent; 
     border-bottom: 15px solid transparent; 
-    border-left: 15px solid #3990BF; 
+    border-left: 15px solid rgb(57, 191, 90); 
 } 
 #chat #mensajes .mensaje-amigo img, #chat #mensajes .mensaje-autor img{ 
     border-radius: 5px; 

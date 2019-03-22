@@ -34,7 +34,7 @@
         <!-- Sidebar Holder -->
         <nav id="sidebar">
             <div class="sidebar-header" style="color">
-                <img src="https://image.flaticon.com/icons/png/512/64/64096.png" class="rounded" alt="Cinque Terre"
+                <img src="https://cdn.pixabay.com/photo/2016/04/15/18/05/computer-1331579_960_720.png" class="rounded" alt="Cinque Terre"
                     width="100" height="100" style="margin-left: 40px">
                 <h4 style="padding-top:5px;" align="center" class="container">Bienvenido {{
                             auth()->user()->nombreSolicitante }}</h4>
