@@ -20,11 +20,6 @@ use Storage;
 use DB;
 
 
-
-
-
-
-
 class SolicitanteTramiteController extends Controller
 {
 
@@ -84,7 +79,7 @@ class SolicitanteTramiteController extends Controller
      $Documento=Documentacion::where('idTramite',$id)->get();
 
 
- return view('Cruds-solicitante.Tramites-Solicitante.showDoc',compact('Documento'));
+ return view('Cruds-solicitante.Tramites-Solicitante.showDoc',compact('Documento', 'id'));
 
 }
 

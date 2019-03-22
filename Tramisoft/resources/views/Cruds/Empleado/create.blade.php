@@ -79,8 +79,8 @@
 
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>telefono:</strong>
-                <input type="text" name="telefonoEmp" class="form-control" placeholder="telefono Empleado" required>
+                <strong>Telefono:</strong>
+                <input type="number" name="telefonoEmp" class="form-control" placeholder="telefono Empleado" required>
             </div>
         </div>
 

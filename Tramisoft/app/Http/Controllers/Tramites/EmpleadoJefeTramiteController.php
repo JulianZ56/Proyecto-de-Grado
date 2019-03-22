@@ -88,7 +88,7 @@ class EmpleadoJefeTramiteController extends Controller
      $Documento=Documentacion::where('idTramite',$id)->get();
 
 
- return view('Cruds-empleadojefe.Tramites.showDoc',compact('Documento'));
+ return view('Cruds-empleadojefe.Tramites.showDoc',compact('Documento' , 'id'));
 
 }
 

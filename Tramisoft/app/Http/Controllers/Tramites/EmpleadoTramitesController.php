@@ -34,7 +34,7 @@ class EmpleadoTramitesController extends Controller
     public function index(){
 
         $idE=auth()->user()->id;
-        $tramites = Tramite::where('idEmpleado',$idE)->orderBy('id', 'asc')->paginate(5);
+        $tramites = Tramite::where('idEmpleado',$idE)->orderBy('id', 'Desc')->paginate(5);
         $empleados= Empleado::all();
         $segui= Seguimiento::all();
 

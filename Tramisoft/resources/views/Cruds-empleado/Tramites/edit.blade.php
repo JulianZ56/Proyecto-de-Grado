@@ -31,7 +31,7 @@
             </td>
         </tr>
         <tr>
-            <td class="columnas" style="border: gray 1px solid;"><strong>Odservacion</strong></td>
+            <td class="columnas" style="border: gray 1px solid;"><strong>Observacion</strong></td>
             <td class="bordes2"><textarea rows="3" cols="50" type="tex" name="Observacion" class="form-control"
                     placeholder="New Observacion" required></textarea></td>
         </tr>
@@ -40,8 +40,8 @@
 </table>
 
         <div class="col-3">
-            <button type="submit" class="btn btn-outline-info btn-sm" style="float: center;">
-                <i class="fas fa-edit"></i>Actualizar</button></div>
+            <button type="submit" class="btn btn-outline-info " style="float: center;">
+            <i class="fas fa-edit"></i> Actualizar</button></div>
         </div>
 </form>
 

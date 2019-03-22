@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\DB;
 use App\Documentacion;
 use App\CatalogoTramite;
 use App\Dependencia;
+use App\Doc_Catalogo;
+use App\Tramite;
 
 
 
@@ -36,7 +38,6 @@ class DocumentacionController extends Controller
            ->orderBy('dependencias.id', 'asc')
            ->paginate(5);
     
-
 
   
        // return view('Cruds.Documentacion.index');
@@ -112,8 +113,29 @@ class DocumentacionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($id_doc)
     {
-        //
+        $doc_catalogo =Doc_Catalogo::where('idCatalogoTramite',$id_doc)->firstOrFail();
+        $tramites = DB::table('Tramites')->pluck('idCatalogoTramite');
+
+       
+
+        $encontrado=false;
+
+        $resultado= "Es imposible destruir el registro puesto que el Identificador: "."($id_doc)"." ya que esta siendo referenciado en una o mas Tramites";
+       
+        foreach($tramites as $elemento){
+         if ($elemento==$id_doc)
+           $encontrado=true;
+        }
+
+        if ($encontrado){ 
+           return redirect()->route('superuser.documentacion-index')->with('advertencia',$resultado);
+         }else{
+            $doc_catalogo->delete();  
+         return redirect()->route('superuser.documentacion-index')
+                       ->with('danger','Documento Eliminado Satisfactoriamente');  
+         }
+         
     }
 }

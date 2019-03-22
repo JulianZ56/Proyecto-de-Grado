@@ -69,10 +69,9 @@
             <td style="border: 1px green solid;" >{{ $Tramite->nombreDoc }}</td>
             <td style="border: 1px green solid;">
 
-                <a class="btn btn-outline-secondary" href=""><i
-                        class="fas fa-eye"></i> Ver</a>
+                
                 <a class="btn btn-outline-info" href=""><i class="fas fa-pencil-alt"></i> Editar</a>
-                <a id="id01" class="btn btn-outline-danger"  href=""><i
+                <a id="id01" class="btn btn-outline-danger"  href="{{ route('superuser.documentos-eliminar', $Tramite->idCatalogoTramite)}}"><i
                         class="fas fa-trash-alt"></i> Eliminar</a>
 
                         

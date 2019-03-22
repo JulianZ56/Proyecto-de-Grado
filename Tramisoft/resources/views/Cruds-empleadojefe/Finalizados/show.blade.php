@@ -184,7 +184,9 @@
             </div> 
             <div class="flecha-derecha"></div> 
             <img src="/img/epa.png" alt="" class="foto" width="40px" height="40px"> 
-           <div class="fecha">{{ $Respuesta->nombre }}  {{ $Respuesta->created_at }}</div>  
+           <div class="fecha">{{ $Respuesta->nombre }} ({{
+                                                $Respuesta->created_at->format('Y-M-d') }}) Hora: ({{
+                                                $Respuesta->created_at->format('H:i:s') }})</div>  
            </div>
 
                 @else 
@@ -195,7 +197,9 @@
             <div class="contenido"> 
                 {{ $Respuesta->comentario }} 
             </div> 
-            <div class="fecha">{{ $Respuesta->nombre }}  {{ $Respuesta->created_at }} </div> 
+            <div class="fecha">{{ $Respuesta->nombre }} ({{
+                                                $Respuesta->created_at->format('Y-M-d') }}) Hora: ({{
+                                                $Respuesta->created_at->format('H:i:s') }}) </div> 
              
                 
                  @endif
