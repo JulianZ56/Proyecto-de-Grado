@@ -3,11 +3,14 @@
 
 @section('contenido')
 
-<table class="table table-bordered" style="border: 0; margin:0px">
+<table  class="table table-bordered" style="border: 0; margin:0px">
     <tr>
         <th style="border: 0;">
             <h2 class="titulo">Observaciones</h2>
-       
+        </th>
+        <th style="float: right; border:0;"><a class="btn btn-outline-secondary" href="{{ URL::previous() }}"><i
+                    class="fas fa-undo"></i> Volver</a></div>
+        </th>
     </tr>
 </table>
 
