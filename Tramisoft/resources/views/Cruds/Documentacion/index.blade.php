@@ -70,8 +70,9 @@
             <td style="border: 1px green solid;">
 
                 
-                <a class="btn btn-outline-info" href=""><i class="fas fa-pencil-alt"></i> Editar</a>
-                <a id="id01" class="btn btn-outline-danger"  href="{{ route('superuser.documentos-eliminar', $Tramite->idCatalogoTramite)}}"><i
+                <a class="btn btn-outline-info" href="{{ route('superuser.documentos-editar', $Tramite->id)}}"><i class="fas fa-pencil-alt"></i> Editar</a>
+
+                <a id="id01" class="btn btn-outline-danger" href="{{ route('superuser.documentos-eliminar', $Tramite->idCatalogoTramite)}}"><i
                         class="fas fa-trash-alt"></i> Eliminar</a>
 
                         

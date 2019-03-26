@@ -92,7 +92,12 @@ class DocumentacionController extends Controller
      */
     public function edit($id)
     {
-        //
+       
+
+        $documetacion=Doc_Catalogo::find($id);
+
+        return view('Cruds.Documentacion.edit',compact('documetacion'));
+
     }
 
     /**
@@ -104,7 +109,25 @@ class DocumentacionController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+       //echo $id;
+
+      // echo $request->nombreDoc;
+
+
+
+         $documetacion=Doc_Catalogo::where('id',$id)->get()->first();
+
+      //   echo $documetacion->idCatalogoTramite;
+
+
+           Doc_Catalogo::find($id)->update([
+           'idCatalogoTramite' => $documetacion->idCatalogoTramite,
+           'nombreDoc' => $request['nombreDoc'],
+       ]);
+
+        return redirect()->route('superuser.documentacion-index')
+                       ->with('info','Documento actualizado Satisfactoriamente');
+
     }
 
     /**
