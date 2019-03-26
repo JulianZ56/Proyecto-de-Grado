@@ -16,6 +16,7 @@ use App\CatalogoTramite;
 use App\Solicitante;
 use App\Doc_Catalogo;
 use App\Documentacion;
+use App\Observacion;
 use Storage;
 use DB;
 
@@ -58,18 +59,27 @@ class SolicitanteTramiteController extends Controller
         $crear=Seguimiento::where('idTramite',$id)->value('id');
         $Respuestas=Respuestaseguimiento::where('idSeguimiento',$crear)->get();
         $Tramite=Tramite::find($id);
-        $Segui=Seguimiento::where('idTramite',$id)->value('EstadoTramite');
+        $Segui=Seguimiento::where('idTramite',$id)->first();
         $Documento=Documentacion::where('idTramite',$id)->get();
+      $Observa=Observacion::where('idSeguimiento',$Segui->id)->get();
+     $observar=$Observa->last();
 
 
 
+      $encontrado=false;
+           if($Tramite->idEmpleado == null){
+              $encontrado=true;
+       }
 
-        $encontrado=false;
-            if($Tramite->idEmpleado == null){
-               $encontrado=true;
-        }
 
-        return view('Cruds-solicitante.Tramites-Solicitante.show',compact('Tramite','Segui','Respuestas', 'encontrado','Documento'));
+
+         $encontrado2=false;
+         
+            if($observar == null){
+                $encontrado2=true;
+            }
+
+     return view('Cruds-solicitante.Tramites-Solicitante.show',compact('Tramite','Segui','Respuestas', 'encontrado','Documento','encontrado2','observar'));
 
     }
 
@@ -233,6 +243,18 @@ for ($i = 0; $i < $num->numeroDocumentos; $i++) {
         ->with('i', (request()->input('page', 1) - 1) * 5);
 
 
+    }
+
+
+     public function showObservaviones($id){
+
+         $Tramite=Tramite::find($id);
+         $Segui=Seguimiento::where('idTramite',$id)->first();
+         $Observa=Observacion::where('idSeguimiento',$Segui->id)->orderBy('id', 'des')->paginate(5);
+
+
+
+       return view('Cruds-solicitante.Tramites-Solicitante.observaciones',compact('Observa')) ->with('i', (request()->input('page', 1) - 1) * 5);;
     }
 
 

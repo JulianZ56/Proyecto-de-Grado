@@ -1,7 +1,7 @@
-@extends('Layouts-Inicio.inicio-empleado')
-
+@extends('Layouts-Inicio.inicio-solicitante')
 
 @section('contenido')
+
 
 <table  class="table table-bordered" style="border: 0; margin:0px">
     <tr>

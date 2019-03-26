@@ -49,6 +49,9 @@ Route::prefix('solicitante')->group(function(){
 	Route::get('/' , 'controladorSolicitante\SolicitanteControlador@index')->name('solicitante.inicio.login');
 	Route::post('/logout' , 'login\SolicitanteLoginController@logout')->name('solicitante.salir.login');
 
+
+
+
 	// -------------Ver Tramites----------------
     Route::get ('/solicitante' , 'Tramites\SolicitanteTramiteController@index')->name('solicitante.solicitante-index');//Inicio    
 	Route::get ('/solicitante/ver/{id}' , 'Tramites\SolicitanteTramiteController@show')->name('solicitante.solicitante-ver');//Ver
@@ -56,6 +59,8 @@ Route::prefix('solicitante')->group(function(){
 	Route::post ('/solicitante/actualizar/{id}' , 'Tramites\SolicitanteTramiteController@update')->name('solicitante.solicitante-actualizar');//Update 
 	Route::post ('/solicitante/actualizar-chat/{id}' , 'Tramites\SolicitanteTramiteController@update2')->name('solicitante.solicitante-actualizar-chat');
 
+
+Route::get ('/solicitante/Observaciones/{id}' , 'Tramites\SolicitanteTramiteController@showObservaviones')->name('solicitante.Observaciones-ver');
 
     Route::get ('/solicitante/ver-Documentos/{id}' , 'Tramites\SolicitanteTramiteController@showDuc')->name('solicitante.solicitante-ver-Doc');//Ver
     Route::get ('/solicitante/descargar/{id}' , 'Tramites\SolicitanteTramiteController@descarga')->name('solicitante.solicitante-ver-descargar');//
