@@ -36,7 +36,7 @@ class LoginController extends Controller
         }
         if (Auth::guard('superuser')->attempt(['email'=> $request->email,'password'=> $request->password], $request->remember)) {
 
-    		return redirect()->intended(route('superuser.inicio.login'));
+    		return redirect()->intended(route('superuser.inicio.login')); 
     		
         }
         
