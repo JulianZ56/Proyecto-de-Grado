@@ -46,7 +46,7 @@
                 <p>Gestion de Tramites</p>
 
                 <li class="active">
-                    <a href="#homeSubmenu" style="padding-left: 10px"><i class="fas fa-home"></i> Inicio</a>
+                    <a href="{{ route('empleado.inicioinfo-inicio') }}" style="padding-left: 10px"><i class="fas fa-home"></i> Inicio</a>
 
                 </li>
                  <li>

@@ -196,4 +196,9 @@ class AdminController extends Controller
         return redirect()->route('superuser.admin-index')
                         ->with('danger','Administrador Eliminado Satisfactoriamente');
     }
+
+    public function inicio()
+    {
+        return view('Cruds.Admin.infoindex');
+    }
 }

@@ -14,6 +14,6 @@ class EmpleadoJefeControlador extends Controller
     }
     public function index()
     {
-    	return view('Layouts-Inicio.inicio-empleadojefe');
+    	return view('Cruds-empleadojefe.inicio.infoindex');
     }
 }

@@ -14,6 +14,6 @@ class SuperUserController extends Controller
     }
     public function index()
     {
-    	return view('Layouts-Inicio.inicio-superuser');
+    	return view('Cruds.Admin.infoindex');
     }
 }

@@ -16,6 +16,6 @@ class SolicitanteControlador extends Controller
     }
     public function index()
     {
-    	return view('Layouts-Inicio.inicio-solicitante');
+    	return view('Cruds-solicitante.inicio.infoindex');
     }
 }

@@ -33,6 +33,11 @@ class SolicitanteTramiteController extends Controller
     {
         $this->middleware('auth:solicitante');
     }
+
+    public function inicio()
+    {
+        return view('Cruds-Solicitante.Inicio.infoindex');
+    }
     /**
      * Display a listing of the resource.
      *

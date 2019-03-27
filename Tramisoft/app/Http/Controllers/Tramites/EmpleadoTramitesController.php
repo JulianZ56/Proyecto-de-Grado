@@ -26,6 +26,11 @@ class EmpleadoTramitesController extends Controller
     {
         $this->middleware('auth:empleado');
     }
+
+    public function inicio()
+    {
+        return view('Cruds-empleado.Inicio.infoindex');
+    }
     /**
      * Display a listing of the resource.
      *

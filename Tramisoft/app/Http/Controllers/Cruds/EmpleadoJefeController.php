@@ -48,6 +48,8 @@ class EmpleadoJefeController extends Controller
         return view('Cruds.EmpleadoJefe.create', compact('empleados','dependencias'));
     }
 
+    
+
     /**
      * Store a newly created resource in storage.
      *

@@ -37,8 +37,10 @@
         <!-- Sidebar Holder -->
         <nav id="sidebar">
             <div class="sidebar-header" style="color">
-                <img src="https://pngimage.net/wp-content/uploads/2018/05/admin-png-images-4.png" class="rounded" alt="Cinque Terre"
+                <img src="https://i.ibb.co/Fhw9N89/admin-png-17269.png" class="rounded" alt="Cinque Terre"
                     width="100" height="100" style="margin-left: 40px">
+                 
+                    
                 <h4 style="padding-top:5px" class="container" align="center" >Bienvenido Admin</h4>
                 <p style="color:cyan" class="container" align="center"> Realiza tu gestión</p>
             </div>
@@ -47,7 +49,7 @@
                 <p>Gestion de Tramites</p>
 
                 <li class="active">
-                    <a href="#homeSubmenu" style="padding-left: 10px"><i class="fas fa-home"></i> Inicio</a>
+                    <a href="{{ route('superuser.inicioinfo-inicio') }}" style="padding-left: 10px"><i class="fas fa-home"></i> Inicio</a>
 
                 </li>
 
@@ -161,9 +163,7 @@
 
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                        </li>
+                       
 
                     </ul>
 

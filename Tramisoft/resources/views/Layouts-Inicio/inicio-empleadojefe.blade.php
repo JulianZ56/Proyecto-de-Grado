@@ -34,7 +34,7 @@
         <!-- Sidebar Holder -->
         <nav id="sidebar">
             <div class="sidebar-header" style="color">
-                <img src="https://image.flaticon.com/icons/png/512/306/306232.png" class="rounded" alt="Cinque Terre"
+                <img src="https://i.ibb.co/BnqJDJy/admin.png" class="rounded" alt="Cinque Terre"
                     width="100" height="100" style="margin-left: 40px">
                 <h4 style="padding-top:5px;" align="center" class="container">Bienvenido {{
                     auth()->user()->nombreEmp }}</h4>
@@ -45,7 +45,7 @@
                 <p>Gestion de Tramites</p>
 
                 <li class="active">
-                    <a href="#homeSubmenu" style="padding-left: 10px"><i class="fas fa-home"></i> Inicio</a>
+                    <a href="{{ route('empleadojefe.inicioinfo-inicio') }}" style="padding-left: 10px"><i class="fas fa-home"></i> Inicio</a>
                 </li>
                 <li>
                     <a href="#pageSubmenu2" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle"><i class="fas fa-book"></i>

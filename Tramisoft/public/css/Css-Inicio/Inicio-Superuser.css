@@ -282,6 +282,11 @@ strong.mostrar{
     padding-right:15px; 
     
 }
+.epa{
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+}
 
 .modalDialog {
 	position: fixed;

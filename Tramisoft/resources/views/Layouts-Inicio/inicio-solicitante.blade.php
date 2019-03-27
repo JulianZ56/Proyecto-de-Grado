@@ -34,8 +34,9 @@
         <!-- Sidebar Holder -->
         <nav id="sidebar">
             <div class="sidebar-header" style="color">
-                <img src="https://cdn.pixabay.com/photo/2016/04/15/18/05/computer-1331579_960_720.png" class="rounded" alt="Cinque Terre"
+                <img src="https://i.ibb.co/CHfdkcT/Usuario.png" class="rounded" alt="Cinque Terre"
                     width="100" height="100" style="margin-left: 40px">
+                    
                 <h4 style="padding-top:5px;" align="center" class="container">Bienvenido {{
                             auth()->user()->nombreSolicitante }}</h4>
                 <p style="color:cyan" align="center" class="container"> Realiza tu gestión</p>
@@ -45,7 +46,7 @@
                 <p>Gestion de Tramites</p>
 
                 <li class="active">
-                    <a href="#homeSubmenu" style="padding-left: 10px"><i class="fas fa-home"></i> Inicio</a>
+                    <a href="{{ route('solicitante.inicioinfo-inicio') }}" style="padding-left: 10px"><i class="fas fa-home"></i> Inicio</a>
                 <li>
                     <a href="{{ route('solicitante.crearsolicitud-index') }}"><i class="fas fa-plus-circle"></i> Crear Tramites</a>
                 </li>
