@@ -65,7 +65,7 @@
 
 <div class="row">
   <div class="column">
-    <p style="color:white;">  {{ $Tramite->created_at }} <strong class="mostrar" style="color:cyan;">Hora</strong> {{ $Tramite->created_at }}</p>
+  <p style="color:white;">  {{ $Tramite->created_at->format('M-d-Y') }} -<strong class="mostrar" style="color:cyan;">Hora</strong> {{ $Tramite->created_at->format('H:i:s') }}</p>
     <p> </p>
   </div>
   <div class="column" >

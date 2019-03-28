@@ -60,7 +60,7 @@ class EmpleadoJefeTramiteController extends Controller
            ->select('tramites.*','catalogo_tramites.nombreCatalogo','catalogo_tramites.descripcionCatalogo','dependencias.nombreDependecia','solicitantes.nombreSolicitante','solicitantes.apellido')
            ->where('dependencias.id',$idE)
            ->where('seguimientos.EstadoTramite','Finalizado')
-           ->orderBy('dependencias.id', 'asc')
+           ->orderBy('tramites.id', 'asc')
            ->paginate(5); 
     
        
@@ -89,7 +89,7 @@ class EmpleadoJefeTramiteController extends Controller
             ->select('tramites.*','catalogo_tramites.nombreCatalogo','catalogo_tramites.descripcionCatalogo','dependencias.nombreDependecia','solicitantes.nombreSolicitante','solicitantes.apellido')
             ->where('dependencias.id',$idE)
             ->where('seguimientos.EstadoTramite','Sin Asignar')
-            ->orderBy('dependencias.id', 'asc')
+            ->orderBy('tramites.id', 'DESC')
             ->paginate(5); 
      
         
@@ -167,7 +167,7 @@ public function descarga($id)
            ->where('dependencias.id',$idE)
            ->where('seguimientos.EstadoTramite','Proceso')
            ->orwhere('seguimientos.EstadoTramite','Revicion')
-           ->orderBy('dependencias.id', 'asc')
+           ->orderBy('dependencias.id', 'DESC')
            ->paginate(5); 
     
        
@@ -418,7 +418,7 @@ public function descarga($id)
             ->select('tramites.*','catalogo_tramites.nombreCatalogo','catalogo_tramites.descripcionCatalogo','dependencias.nombreDependecia','solicitantes.nombreSolicitante','solicitantes.apellido')
             ->where('dependencias.id',$idE)
             ->where('seguimientos.EstadoTramite','Sin Asignar')
-            ->orderBy('dependencias.id', 'asc')
+            ->orderBy('dependencias.id', 'desc')
             ->paginate(5); 
      
         

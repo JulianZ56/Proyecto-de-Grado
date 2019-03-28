@@ -73,14 +73,15 @@
     <p >Nombre del Solicitante:&nbsp;<strong>{{ $Tramite->nombreSolicitante }} {{ $Tramite->apellido }}</strong></p>
     <p>Numero del ID:&nbsp;{{ $Tramite->id }} </p>
 
-    <p class="card-title">Descripcion:&nbsp;{{ $Tramite->descripcionCatalogo }}</p>              
+    <p class="card-title">Descripcion:&nbsp;{{ $Tramite->descripcionTramite }}</p>              
   </div>
 
   <div class="card-footer text-muted" style="background-color:rgb(34, 66, 59);">
 
 <div class="row">
   <div class="column">
-    <p style="color:white;">  {{ $Tramite->created_at }} <strong class="mostrar" style="color:cyan;">Hora</strong> {{ $Tramite->created_at }}</p>
+  <p style="color:white;">  {{ $Tramite->created_at }} </p>
+    
     <p> </p>
   </div>
   <div class="column" >
