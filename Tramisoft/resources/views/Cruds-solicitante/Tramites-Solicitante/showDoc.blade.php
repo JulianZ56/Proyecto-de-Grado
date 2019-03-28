@@ -35,7 +35,52 @@
            
         </tr>
             @endforeach
+
+
+          
   
 </table>
+
+
+
+
+
+<div class="col-xs-6 col-sm-6 col-md-6 text-center">
+    <button type="button" data-toggle="collapse" data-target="#demo1" class="btn btn-outline-dark" style="float: left;"><i
+            class="fas fa-angle-double-down"></i> Agregar nuevo Documento</button>
+</div>
+
+<div class="col-xs-12 col-sm-12 col-md-12">
+    <div id="demo1" class="btn-group; collapse">
+        <form action="{{ route('solicitante.solicitante-NewDoc', $id) }}"  enctype="multipart/form-data" method="POST">
+            @csrf
+ <br>
+           <label>Nombre del Documento</label>
+
+            <input type="text" name="nombrearchivo" class="form-control" placeholder="Nombre" required>
+<br>
+<div class="form-group">
+            <input type="file" name="Documento" required>
+        </div>
+<br>
+
+           <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+                <button type="submit" class="btn btn-outline-info" style="float: center;"><i class="fas fa-check"></i>
+                    Agregar</button>
+            </div>
+
+</form>
+</div>
+
+    
+</div>
+
+
+
+
+
+      
+                     
+                    
 
 @endsection

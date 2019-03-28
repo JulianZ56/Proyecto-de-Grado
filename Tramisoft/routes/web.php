@@ -83,6 +83,10 @@ Route::prefix('solicitante')->group(function(){
 	Route::get ('/CrearSolicitud/crear/{id}' , 'Tramites\SolicitanteTramiteController@byDependencia')->name('solicitante.filtro-xd');
 	Route::get ('/CrearSolicitud/descripcion/{id}' , 'Tramites\SolicitanteTramiteController@byCatalogo')->name('solicitante.filtrodesc-xd');
 
+
+	Route::post ('/solicitante/CrearSolicitud/Documento-agregar/{id}' , 'Tramites\SolicitanteTramiteController@Documentoagregar')->name('solicitante.solicitante-NewDoc');
+
+
 });
 
 Route::prefix('empleadojefe')->group(function(){

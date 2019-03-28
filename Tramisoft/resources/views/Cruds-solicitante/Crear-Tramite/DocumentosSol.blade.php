@@ -18,7 +18,7 @@
 
 
 
-<h3 align="center">Anexa Documentos</h3>
+<h3 align="center">Anexa los Documentos</h3>
 
 <form action="{{route('solicitante.Sol-Documento', ['id' => $variable->id])}}" method="post"
     enctype="multipart/form-data">

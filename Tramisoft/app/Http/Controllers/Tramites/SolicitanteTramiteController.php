@@ -100,6 +100,8 @@ class SolicitanteTramiteController extends Controller
 
  return view('Cruds-solicitante.Tramites-Solicitante.showDoc',compact('Documento', 'id'));
 
+
+
 }
 
    public function descarga($id)
@@ -244,6 +246,41 @@ for ($i = 0; $i < $num->numeroDocumentos; $i++) {
 
 
     }
+
+
+    public function Documentoagregar(Request $request, $id){
+        
+
+   
+     $trami= Tramite::where('tramites.id', $id)->first();
+
+     $num= CatalogoTramite::where('id',  $trami->idCatalogoTramite)->first();
+
+    $nombrear=Doc_Catalogo::where('idCatalogoTramite',  $num->id)->get();
+
+
+
+        $Documen = new Documentacion;
+        $Documen->idTramite = $id;
+        $Documen->nombrearchivo = $request->input("nombrearchivo");
+        $Documen->nombreDocumento = Storage::disk('archivos')->put('archivos', $request->file("Documento"));
+        $Documen->save(); 
+
+
+
+
+     $Documento=Documentacion::where('idTramite',$id)->get();
+
+
+ return view('Cruds-solicitante.Tramites-Solicitante.showDoc',compact('Documento', 'id'))->with("Su documento se agrego correectamente");
+
+
+
+
+    }
+
+
+
 
 
      public function showObservaviones($id){
