@@ -81,6 +81,7 @@ Route::prefix('solicitante')->group(function(){
 	Route::get ('/solicitante/CrearSolicitud/Documento' , 'Tramites\SolicitanteTramiteController@Documento')->name('solicitante.solicitante-Doc');
 	Route::post ('/solicitante/CrearDocumento/{id}' , 'Tramites\SolicitanteTramiteController@Document')->name('solicitante.Sol-Documento');
 	Route::get ('/CrearSolicitud/crear/{id}' , 'Tramites\SolicitanteTramiteController@byDependencia')->name('solicitante.filtro-xd');
+	Route::get ('/CrearSolicitud/descripcion/{id}' , 'Tramites\SolicitanteTramiteController@byCatalogo')->name('solicitante.filtrodesc-xd');
 
 });
 

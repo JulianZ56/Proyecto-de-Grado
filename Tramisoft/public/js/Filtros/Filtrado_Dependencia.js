@@ -26,7 +26,6 @@ function onSelectcatalogo(){
 
 
 
-
 $(function(){
     $("#Dependencia").on("change", onSelectcatalogoD);   
 });     
@@ -55,6 +54,10 @@ function onSelectcatalogoD(){
 
 
 
+
+
+
+
 $(function(){
     $("#Dependencia").on("change", onSelectcatalogo1);   
 });     
@@ -75,6 +78,31 @@ function onSelectcatalogo1(){
 
     }else if(!dependencia_id){
         $('#Catalogo').html('<option value="">----Seleccione Catalogo----</option>');
+        
+            return;
+    }    
+}
+
+//De acuerdo a el catalogo muestra descipcion
+$(function(){
+    $("#Catalogo").on("change", observar);   
+});     
+       
+function observar(){
+    var catalogo_id = $(this).val();
+
+    if(catalogo_id){ 
+        
+        $.get('/solicitante/CrearSolicitud/descripcion/'+catalogo_id+'' , function (data) {       
+        var html_select4='';
+        for(var i=0; i<data.length; ++i)
+        html_select4 += '<p align="center" style="color:blue;"><strong>'+data[i].descripcionCatalogo+'</strong></p>';
+        $('#des').html(html_select4);
+    });
+        
+
+    }else if(!catalogo_id){
+        $('#des').html('<option value="">----No se encontro descripcion----</option>');
         
             return;
     }    
