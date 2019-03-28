@@ -80,7 +80,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Telefono:</strong>
-                <input type="number" name="telefonoEmp" class="form-control" placeholder="telefono Empleado" required>
+                <input type="number" name="telefonoEmp" class="form-control" placeholder="Telefono Empleado" minlength="7" maxlength="12" required>
             </div>
         </div>
 
@@ -95,7 +95,7 @@
           <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Password:</strong>
-                <input type="password" name="password" class="form-control" placeholder="Contraseña" required>
+                <input type="password" name="password" class="form-control" placeholder="Contraseña" minlength="6" maxlength="12" required >
             </div>
         </div>
 
