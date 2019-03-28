@@ -28,6 +28,10 @@ class SolicitanteTramiteController extends Controller
 
         return CatalogoTramite::where('idDependencia', $id)->get();
     }
+    public function byCatalogo($id){
+
+        return CatalogoTramite::where('id', $id)->get();
+    }
 
     public function __construct()
     {
