@@ -150,7 +150,7 @@
                                 <div class="col-6">{{$observar->Observacion}}</div>
                                 <div class="col-3">
                                     <a class="btn btn-outline-info" href="{{ route('empleadojefe.empleadojefe-Observaciones', $Tramite->id)}}">
-                                        <i class="fas fa-pencil-alt"></i>Ver Observaciones</a>
+                                        <i class="fas fa-eye"></i> Ver Observaciones</a>
                                 </div>
                                 @endif
 

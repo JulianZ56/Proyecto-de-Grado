@@ -15,7 +15,7 @@
 </table>
 
 
-<table class="table table-info table-striped" style="border: 2px black border-radius:20px">
+<table class="table table-success table-striped" style="border: 2px black border-radius:20px">
     <thead  align="center" class="thead-dark">
         <tr>
            
