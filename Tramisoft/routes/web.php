@@ -118,11 +118,23 @@ Route::prefix('empleadojefe')->group(function(){
 	Route::post ('/tramites/Asignar/validacion/{id}' , 'Tramites\EmpleadoJefeTramiteController@asignar_empleado')->name('empleadojefe.validar-empleados');//Ver
 	
 	// -------------Re Asignar---------------- //
-	Route::get ('/tramites/Re-asignar/{id}' , 'Tramites\EmpleadoJefeTramiteController@reasignar')->name('empleadojefe.reasignar-empleados');//Inicio
+	Route::get ('/tramites/Re-asignar/{id}' , 'Tramites\EmpleadoJefeTramiteController@reasignar')->name('empleadojefe.reasignar-empleados');
 	Route::post ('/tramites/Re-asignar/validacion/{id}' , 'Tramites\EmpleadoJefeTramiteController@reasignar_empleado')->name('empleadojefe.revalidar-empleados');//Ver
 	
     Route::get ('/tramites/Observaciones/{id}' , 'Tramites\EmpleadoJefeTramiteController@showObservaviones')->name('empleadojefe.empleadojefe-Observaciones');
-	
+
+
+// -------------Re Asignar Dependencia---------------- //
+    	Route::get ('/tramites/Re-Dependencia/{id}' , 'Tramites\EmpleadoJefeTramiteController@reasignarDep')->name('empleadojefe.reasignarDependencia');
+
+		Route::get ('/tramites/Re-Dependencia/{id}' , 'Tramites\EmpleadoJefeTramiteController@reasignarDependencia')->name('empleadojefe.ReasignarDependencia');
+
+		Route::get ('/tramites/Re-DependenciaF/{id}' , 'Tramites\EmpleadoJefeTramiteController@byDependencia')->name('empleadojefe.filtro-xd');
+
+
+
+	Route::post ('/tramites/Re-DependenciaF/validacion/{id}' , 'Tramites\EmpleadoJefeTramiteController@DependenciaDepen')->name('empleadojefe.validar-dependencia');//Ver
+
 
 });
 

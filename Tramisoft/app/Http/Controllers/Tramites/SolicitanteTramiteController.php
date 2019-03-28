@@ -150,16 +150,14 @@ class SolicitanteTramiteController extends Controller
         $tramite->idEmpleado = null;
         $tramite->idCatalogoTramite=$request->get('idCatalogoTramite');
         $tramite->descripcionTramite=$request->input('descripcion');
-        $tramite->save();
+       $tramite->save();
 
         
-
-
 
         $segumiento = new Seguimiento;
         $segumiento->idTramite = $tramite->id;
         $segumiento->EstadoTramite = "Sin Asignar";
-        $segumiento->save(); 
+       $segumiento->save(); 
 
 
  
@@ -172,9 +170,9 @@ class SolicitanteTramiteController extends Controller
         $nose= Tramite::where('tramites.id', $Docu)->value('idCatalogoTramite');
        $nose2= Doc_Catalogo::where('doc__catalogos.idCatalogoTramite', $nose)->get();
 
-       
+     
 
-    return redirect()->route('solicitante.solicitante-Doc',compact('nose2','Docu'));
+    return redirect()->route('solicitante.solicitante-Doc',compact('nose2','Docu','tramite','segumiento'));
         
     }
 
@@ -229,15 +227,6 @@ for ($i = 0; $i < $num->numeroDocumentos; $i++) {
 }
 
 
-//if ($request->hasFlie('Documento0')) {
-    
-
-    //$file= $request->file('Documento0');
-    //$name= $file->getClientOriginaName();
-  //  return $request;
-//}
-
-//return $request->file('Documento0');
 
       
       $tramites = Tramite::where('idSolicitante',auth()->user()->id)->orderBy('id', 'DESC')->paginate(5);
@@ -245,7 +234,9 @@ for ($i = 0; $i < $num->numeroDocumentos; $i++) {
      $segui= Seguimiento::all();
 
     return redirect()->route('solicitante.solicitante-index',compact('tramites', 'empleados', 'segui'))
-        ->with('i', (request()->input('page', 1) - 1) * 5);
+       ->with('i', (request()->input('page', 1) - 1) * 5);
+
+
 
 
     }

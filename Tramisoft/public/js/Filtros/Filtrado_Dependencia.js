@@ -27,6 +27,32 @@ function onSelectcatalogo(){
 
 
 
+$(function(){
+    $("#Dependencia").on("change", onSelectcatalogoD);   
+});     
+       
+function onSelectcatalogoD(){
+    var dependencia_id = $(this).val();
+
+    if(dependencia_id){
+        $('#Catalogo').prop('disabled', false);
+        
+        $.get('/empleadojefe/tramites/Re-DependenciaF/'+dependencia_id+'' , function (data) {       
+        var html_select4='<option value="" >-----Seleccione Catalogo-----</option>';
+        for(var i=0; i<data.length; ++i)
+        html_select4 += '<option value="'+data[i].id+'">'+data[i].nombreCatalogo+'</option>';
+        $('#Catalogo').html(html_select4);
+    });
+        
+
+    }else if(!dependencia_id){
+        $('#Catalogo').html('<option value="">----Seleccione Catalogo----</option>');
+        
+            return;
+    }    
+}
+
+
 
 
 $(function(){

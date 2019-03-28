@@ -19,8 +19,18 @@ use DB;
 
 
 
+
+
+
 class EmpleadoJefeTramiteController extends Controller
 {
+
+    public function byDependencia($id){
+
+        return CatalogoTramite::where('idDependencia', $id)->get();
+    }
+
+
 
         public function __construct()
     {
@@ -314,6 +324,19 @@ public function descarga($id)
         
     }
 
+  
+
+
+        public function reasignarDependencia($id){
+
+     
+        $dependencias= Dependencia::all();
+        $catalogo= CatalogoTramite::all();
+       
+         return view('Cruds-empleadojefe.Tramites.index', compact('dependencias','catalogo','id'));
+    }
+
+
     public function reasignar_empleado(Request $request, $id){
 
         Tramite::find($id)->update([
@@ -371,7 +394,43 @@ public function descarga($id)
 
 
 
+
     }
+
+
+     public function DependenciaDepen(Request $request, $id){
+
+
+            Tramite::find($id)->update([
+           'idCatalogoTramite' => $request->get('idCatalogoTramite'),
+          
+       ]);
+
+ $idE=auth()->user()->idDependencia;
+        $empleados= Empleado::all();
+         $segui= Seguimiento::all();
+ 
+         $TramitesD = DB::table('dependencias','tramites','solicitantes','seguimientos')
+            ->join('catalogo_tramites', 'dependencias.id', '=', 'catalogo_tramites.idDependencia')
+            ->join('tramites', 'catalogo_tramites.id', '=', 'tramites.idCatalogoTramite')
+            ->join('solicitantes', 'tramites.idSolicitante', '=', 'solicitantes.id')
+            ->join('seguimientos', 'tramites.id', '=', 'seguimientos.idTramite')
+            ->select('tramites.*','catalogo_tramites.nombreCatalogo','catalogo_tramites.descripcionCatalogo','dependencias.nombreDependecia','solicitantes.nombreSolicitante','solicitantes.apellido')
+            ->where('dependencias.id',$idE)
+            ->where('seguimientos.EstadoTramite','Sin Asignar')
+            ->orderBy('dependencias.id', 'asc')
+            ->paginate(5); 
+     
+        
+        return view('Cruds-EmpleadoJefe.Pendiente.index',compact('TramitesD', 'empleados', 'segui'))
+        ->with('i', (request()->input('page', 1) - 1) * 5);
+
+
+
+    }
+
+
+
 
        public function showObservaviones($id){
 
