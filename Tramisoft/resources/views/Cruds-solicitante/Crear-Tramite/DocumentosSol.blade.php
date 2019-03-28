@@ -18,7 +18,7 @@
 
 
 
-<h3 align="center">Anexa los Documentos</h3>
+<p align="left">Anexe los Documentos que disponga en el momento</p>
 
 <form action="{{route('solicitante.Sol-Documento', ['id' => $variable->id])}}" method="post"
     enctype="multipart/form-data">
@@ -31,7 +31,7 @@
         </div>
 
         <div class="form-group">
-            <input type="file" name="Documento{{$i}}" required>
+            <input type="file" name="Documento{{$i}}" >
         </div>
 
         @endfor

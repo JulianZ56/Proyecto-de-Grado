@@ -219,9 +219,18 @@ public function Document(Request $request, $id){
 
 
 
+  
+
+
+
+
 for ($i = 0; $i < $num->numeroDocumentos; $i++) {
 
 
+
+         
+          if ($request->file("Documento$i") != null){
+               
 
         $Documen = new Documentacion;
         $Documen->idTramite = $id;
@@ -229,20 +238,22 @@ for ($i = 0; $i < $num->numeroDocumentos; $i++) {
         $Documen->nombreDocumento = Storage::disk('archivos')->put('archivos', $request->file("Documento$i"));
         $Documen->save(); 
 
+             
+            }
+
+     
 
 }
 
 
 
       
-      $tramites = Tramite::where('idSolicitante',auth()->user()->id)->orderBy('id', 'DESC')->paginate(5);
+     $tramites = Tramite::where('idSolicitante',auth()->user()->id)->orderBy('id', 'DESC')->paginate(5);
      $empleados= Empleado::all();
      $segui= Seguimiento::all();
 
     return redirect()->route('solicitante.solicitante-index',compact('tramites', 'empleados', 'segui'))
        ->with('i', (request()->input('page', 1) - 1) * 5);
-
-
 
 
     }
