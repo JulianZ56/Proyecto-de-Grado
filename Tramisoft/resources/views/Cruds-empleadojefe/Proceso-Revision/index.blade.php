@@ -65,8 +65,7 @@
 
 <div class="row">
   <div class="column">
-    <p style="color:white;">  {{ $Tramite->created_at }} <strong class="mostrar" style="color:cyan;">Hora</strong> {{ $Tramite->created_at }}</p>
-    <p> </p>
+  <p style="color:white;"> {{ Carbon\Carbon::parse($Tramite->created_at)->format('M-d-Y') }} -<strong class="mostrar" style="color:cyan;">Hora :</strong>{{ Carbon\Carbon::parse($Tramite->created_at)->format('H:i:s') }}</p>
   </div>
   <div class="column" >
    <p style="text-align: right;" ><a class="btn btn-outline-secondary"   href="{{ route('empleadojefe.empleadojefe-ver-Proceso', $Tramite->id)}} "><i class="fas fa-eye"></i> Atender tramite</a> </p>

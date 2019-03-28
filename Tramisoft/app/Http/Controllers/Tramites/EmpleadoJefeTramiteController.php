@@ -17,7 +17,7 @@ use App\Documentacion;
 use Storage;
 use DB;
 
-
+use Carbon\Carbon;
 
 
 
@@ -92,7 +92,7 @@ class EmpleadoJefeTramiteController extends Controller
             ->orderBy('tramites.id', 'DESC')
             ->paginate(5); 
      
-        
+
         return view('Cruds-EmpleadoJefe.Pendiente.index',compact('TramitesD', 'empleados', 'segui'))
         ->with('i', (request()->input('page', 1) - 1) * 5);
     }

@@ -64,9 +64,26 @@
 
 
 <div class="card" style=" border: black 1px solid;">
-                <a class="card-header" style="background-color:rgb(63, 105, 96);">
-                    <div class="titulodatos">Empleado asignado</div>
-</a>
+                
+<div class="card-header" style="background-color:rgb(63, 105, 96);">
+
+<div> 
+
+<table class="table table-bordered" style="border: 0; margin:0px">
+<tr>
+    <td style="float: left; border:0;">
+        <h5 class="titulodatos">Empleado Asignado</h5> 
+    </td>
+    <td style="float: right; border:0;">
+        <a class="btn btn-warning btn-sm" style="float: right" href="{{ route('empleadojefe.reasignar-empleados' , $Tramite->id)}}" method="POST" >
+        <i class="fas fa-plus-square"></i> Reasignar Otro Empleado</a>
+    </td>
+</tr>
+</table>
+
+
+</div>
+</div>
                 <div class="card-body">
                     <table class="table table-bordered">
 
@@ -135,7 +152,7 @@
                     <div class="col-6">{{$observar->Observacion}}</div>
                             <div  class="col-3">                       
                                 <a class="btn btn-outline-info" href="{{ route('empleadojefe.empleadojefe-Observaciones', $Tramite->id)}}">
-                                <i class="fas fa-pencil-alt"></i>Ver Observaciones</a>
+                                <i class="fas fa-eye"></i> Ver Observaciones</a>
                             </div>
             @endif
 

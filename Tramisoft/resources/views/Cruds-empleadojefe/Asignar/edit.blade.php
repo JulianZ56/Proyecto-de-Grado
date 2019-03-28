@@ -10,7 +10,7 @@
         <th style="border: 0;">
             <h2 class="titulo">Re-Asignar Empleado</h2>
         </th>
-        <th style="float: right; border:0;"><a class="btn btn-outline-secondary" href="{{ route('empleadojefe.empleadojefe-index-pendiente')}}"><i
+        <th style="float: right; border:0;"><a class="btn btn-outline-secondary" href="{{ URL::previous() }}"><i
                     class="fas fa-undo"></i> Volver</a></div>
         </th>
     </tr>
